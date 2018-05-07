@@ -7,12 +7,13 @@
     <app-menu-bar></app-menu-bar>
   </aside>
   <main>
-    <div class='hero'>
+    <router-outlet></router-outlet>
+    <div class='hero' *ngIf='isHome'>
       <div class='intro' [@appear] [ngClass]="{'large': mode === 'sidebar'}">
         <div class='title'>Hi, I'm Krishna Acondy.</div>
-        <div class='subtitle web-development'>I'm a web developer.&nbsp;</div>
-        <div class='subtitle photography'>I take pictures.&nbsp;</div>
-        <div class='subtitle design'>I design things.</div>
+        <div routerLink='web-development' class='subtitle web-development'>I'm a web developer.</div>
+        <div routerLink='photography' class='subtitle photography'>I take pictures.</div>
+        <div routerLink='design' class='subtitle design'>I design things.</div>
       </div>
     </div>
   </main>

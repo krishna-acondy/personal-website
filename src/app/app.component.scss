@@ -49,6 +49,12 @@ main {
       .subtitle {
         padding-bottom: 0.75rem;
         font-size: 2.75rem;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

@@ -4,6 +4,7 @@ import { trigger, transition, style, animate, group, stagger, query } from '@ang
 import { GalleryMode } from './gallery/models/gallery-mode';
 import { IConfiguration } from './gallery/models/configuration.interface';
 import { Scaling } from './gallery/models/scaling';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,8 @@ import { Scaling } from './gallery/models/scaling';
   ]
 })
 export class AppComponent {
+  constructor(private router: Router) { }
+
   @ViewChild('sidebar')
   sideBar: ElementRef;
 
@@ -40,6 +43,10 @@ export class AppComponent {
 
   get mode() {
     return this.sideBar && this.sideBar.nativeElement.offsetParent ? 'sidebar' : 'menu-bar';
+  }
+
+  get isHome() {
+    return this.router.url === '/';
   }
   // images = [
   //   { url: 'assets/images/1.jpg', caption: 'Morning Glory - 1' },
