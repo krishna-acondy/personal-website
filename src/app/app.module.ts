@@ -6,7 +6,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { WebDevelopmentComponent } from './web-development/web-development.component';
 import { PhotographyComponent } from './photography/photography.component';

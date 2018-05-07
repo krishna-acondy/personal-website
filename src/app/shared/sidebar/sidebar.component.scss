@@ -41,19 +41,19 @@
     display: flex;
     justify-content: center;
     .github-logo {
-      @include image-button('../../assets/images/github-logo.png');
+      @include image-button('../../../assets/images/github-logo.png');
     }
 
     .instagram-logo {
-      @include image-button('../../assets/images/instagram-logo.png');
+      @include image-button('../../../assets/images/instagram-logo.png');
     }
 
     .linkedin-logo {
-      @include image-button('../../assets/images/linkedin-logo.png');
+      @include image-button('../../../assets/images/linkedin-logo.png');
     }
 
     .email-icon {
-      @include image-button('../../assets/images/email.png');
+      @include image-button('../../../assets/images/email.png');
     }
   }
 }

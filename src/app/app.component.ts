@@ -1,35 +1,17 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { trigger, transition, style, animate, group, stagger, query } from '@angular/animations';
 
 import { GalleryMode } from './gallery/models/gallery-mode';
 import { IConfiguration } from './gallery/models/configuration.interface';
 import { Scaling } from './gallery/models/scaling';
 import { Router } from '@angular/router';
+import { appear } from './shared/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    trigger('slideInFromRight', [
-      transition('void => *', [
-        style({ transform: 'translateX(100%)', opacity: 0 }),
-        group([
-          animate('1000ms ease-out', style({transform: 'translateX(0%)'})),
-          animate('2000ms ease-out', style({opacity: 1}))
-        ])
-      ])
-    ]),
-    trigger('appear', [
-      transition('* => *', [
-        query('*', [
-          style({ opacity: 0 }),
-          stagger(2000, [
-            animate('500ms ease-in-out', style({opacity: 1}))
-          ])
-        ], { optional: false })
-      ])
-    ])
+    appear
   ]
 })
 export class AppComponent {
