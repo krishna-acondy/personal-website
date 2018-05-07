@@ -1,0 +1,6 @@
+<div class='top-nav'>
+  <a [ngClass]="{'hamburger-menu': !open, 'close': open}" (click)='open = !open'></a>
+</div>
+<div class='menu' *ngIf='open'>
+  <app-sidebar class='overlay' height='calc(100vh - 6rem'></app-sidebar>
+</div>

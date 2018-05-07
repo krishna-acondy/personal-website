@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'Roboto Thin';
+  src: url('assets/fonts/roboto-thin.woff2') format('woff2'),
+      url('assets/fonts/roboto-thin.woff') format('woff'),
+      url('assets/fonts/roboto-thin.ttf')  format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Regular';
+  src: url('assets/fonts/roboto-regular.woff2') format('woff2'),
+      url('assets/fonts/roboto-regular.woff') format('woff'),
+      url('assets/fonts/roboto-regular.ttf')  format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Bold';
+  src: url('assets/fonts/roboto-bold.woff2') format('woff2'),
+      url('assets/fonts/roboto-bold.woff') format('woff'),
+      url('assets/fonts/roboto-bold.ttf')  format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Roboto Regular';
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+div.web-development {
+  color: #129efc;
+}
+li.web-development {
+  &:hover {
+    color: #129efc;
+  }
+}
+
+div.photography {
+  color: #0699b3;
+}
+li.photography {
+  &:hover {
+    color: #0699b3;
+  }
+}
+
+div.design {
+  color: #0dce7e;
+}
+li.design {
+  &:hover {
+    color: #0dce7e;
+  }
+}

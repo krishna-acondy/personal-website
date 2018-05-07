@@ -1,0 +1,18 @@
+<div class='gallery'>
+  <div class='image-container'>
+    <div class='arrow' (click)='previous()'>&lt;</div>
+    <div class='image' [@appear]='currentIndex'
+      *ngIf='_images.length'
+      [style.backgroundImage]='getUrl(currentImage)'
+      [style.backgroundSize]='imageMode'
+      (click)='next()'>
+    </div>
+    <div class='arrow' (click)='next()'>&gt;</div>
+  </div>
+  <div class='caption'>
+    {{ currentIndex + 1}} / {{ _images.length }} - {{ currentImage.caption }}
+  </div>
+  <div class='progress-bar'>
+    <div class='progress' [style.backgroundColor]='config.progressBarColor' [style.width]='progress.value' [@ease]='progress'></div>
+  </div>
+</div>
