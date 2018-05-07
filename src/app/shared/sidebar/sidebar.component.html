@@ -1,9 +1,11 @@
 <div class='sidebar-container' [style.height]='height'>
   <ul>
-    <li routerLink='/'>Home</li>
-    <li routerLink='/web-development' class='web-development'>Web Development</li>
-    <li routerLink='/photography' class='photography'>Photography</li>
-    <li routerLink='/design' class='design'>Design</li>
+    <li *ngFor='let link of links'
+      (click)='navigateTo(link.target)'
+      [class]='link.class'
+      [ngClass]="{'selected': isSelected(link.target)}">
+      {{ link.text }}
+    </li>
   </ul>
   <div class='contact'>
     <a href='https://github.com/krishna-acondy' target='_blank' title='Github'>

@@ -46,6 +46,11 @@ li.web-development {
   &:hover {
     color: #129efc;
   }
+
+  &.selected {
+    background-color: #129efc;
+    color: #ffffff;
+  }
 }
 
 div.photography {
@@ -55,6 +60,11 @@ li.photography {
   &:hover {
     color: #0699b3;
   }
+
+  &.selected {
+    background-color: #0699b3;
+    color: #ffffff;
+  }
 }
 
 div.design {
@@ -63,6 +73,11 @@ div.design {
 li.design {
   &:hover {
     color: #0dce7e;
+  }
+
+  &.selected {
+    background-color: #0dce7e;
+    color: #ffffff;
   }
 }
 
