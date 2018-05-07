@@ -1,10 +1,9 @@
-<!-- <app-gallery [images]='images' [config]='config'></app-gallery> -->
 <div class='container' [ngClass]="{'row': mode === 'sidebar', 'column': mode === 'menu-bar'}">
   <aside #sidebar class='sidebar' fxHide fxShow.gt-sm>
     <app-sidebar height='calc(100vh - 2rem)'></app-sidebar>
   </aside>
   <aside #menubar class='menu-bar' fxHide fxShow.sm fxShow.lt-sm>
-    <app-menu-bar></app-menu-bar>
+    <app-menu-bar (toggle)='toggleContent($event)'></app-menu-bar>
   </aside>
   <main>
     <router-outlet></router-outlet>
