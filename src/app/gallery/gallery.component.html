@@ -1,13 +1,13 @@
 <div class='gallery'>
   <div class='image-container'>
-    <div class='arrow' (click)='previous()'>&lt;</div>
+    <div class='arrow'><span (click)='previous()'>&lt;</span></div>
     <div class='image' [@appear]='currentIndex'
       *ngIf='_images.length'
       [style.backgroundImage]='getUrl(currentImage)'
       [style.backgroundSize]='imageMode'
       (click)='next()'>
     </div>
-    <div class='arrow' (click)='next()'>&gt;</div>
+    <div class='arrow'><span (click)='next()'>&gt;</span></div>
   </div>
   <div class='caption'>
     {{ currentIndex + 1}} / {{ _images.length }} - {{ currentImage.caption }}

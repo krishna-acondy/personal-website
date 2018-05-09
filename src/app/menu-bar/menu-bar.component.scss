@@ -27,7 +27,7 @@
 }
 
 .menu {
-  height: calc(100vh - 4rem);
+  overflow: hidden;
   .overlay {
     position: absolute;
     z-index: 3;

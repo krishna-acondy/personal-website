@@ -28,7 +28,7 @@ export class PhotographyComponent implements OnInit {
     mode: GalleryMode.Default,
     interval: 5000,
     progressBarColor: '#0699b3',
-    scaling: Scaling.Contain
+    scaling: Scaling.Cover
   };
   constructor() { }
 

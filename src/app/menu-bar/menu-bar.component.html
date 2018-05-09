@@ -2,5 +2,5 @@
   <a [ngClass]="{'hamburger-menu': !open, 'close': open}" (click)='toggleState()'></a>
 </div>
 <div class='menu' *ngIf='open'>
-  <app-sidebar class='overlay' height='calc(100vh - 2rem)' (linkClick)='close()'></app-sidebar>
+  <app-sidebar class='overlay' (linkClick)='close()'></app-sidebar>
 </div>

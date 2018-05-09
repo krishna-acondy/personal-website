@@ -1,6 +1,6 @@
 <div class='container' [ngClass]="{'row': mode === 'sidebar', 'column': mode === 'menu-bar'}">
   <aside #sidebar class='sidebar' fxHide fxShow.gt-sm>
-    <app-sidebar height='calc(100vh - 2rem)'></app-sidebar>
+    <app-sidebar></app-sidebar>
   </aside>
   <aside #menubar class='menu-bar' fxHide fxShow.sm fxShow.lt-sm>
     <app-menu-bar (toggle)='toggleContent($event)'></app-menu-bar>

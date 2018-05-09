@@ -26,6 +26,11 @@
       font-size: 3rem;
       color: #808080;
       cursor: pointer;
+
+      &:focus, &:active {
+        border: 0;
+        outline: none;
+      }
     }
   }
 
