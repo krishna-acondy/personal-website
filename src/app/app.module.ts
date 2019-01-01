@@ -11,6 +11,9 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { WebDevelopmentComponent } from './web-development/web-development.component';
 import { PhotographyComponent } from './photography/photography.component';
 import { DesignComponent } from './design/design.component';
+import { TimelineComponent } from './shared/timeline/timeline.component';
+import { TimelineCardComponent } from './shared/timeline/timeline-card/timeline-card.component';
+import { SafePipe } from './shared/safe.pipe';
 
 export const routes: Route[] = [
   {
@@ -35,7 +38,10 @@ export const routes: Route[] = [
     MenuBarComponent,
     WebDevelopmentComponent,
     PhotographyComponent,
-    DesignComponent
+    DesignComponent,
+    TimelineComponent,
+    TimelineCardComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

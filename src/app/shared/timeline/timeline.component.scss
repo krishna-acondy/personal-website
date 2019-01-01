@@ -1,0 +1,31 @@
+.timeline-container {
+    display: flex;
+    max-width: 97%;
+
+    .even-items, .odd-items {
+        display: flex;
+        flex-direction: column;
+        flex: 4;
+        max-width: 45%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card, .blank {
+        max-width: 80%;
+    }
+
+    .blank {
+        width: 75%;
+        height: 45%;
+        padding: 2rem;
+        background-color: transparent; 
+    }
+
+    .divider {
+        flex: 0.045;
+        border-left: 3px solid #ffffff;
+        align-items: center;
+        justify-content: center;
+    }
+}

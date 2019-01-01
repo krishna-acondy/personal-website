@@ -1,0 +1,16 @@
+<div class='timeline-container'>
+  <div class='even-items'>
+    <ng-container *ngFor='let item of items'>
+        <app-timeline-card class='card' *ngIf='evenItems.includes(item); else blank' [item]='item' connectorSide='left'></app-timeline-card>
+    </ng-container>
+  </div>
+  <div class='divider'></div>
+  <div class='odd-items'>
+    <ng-container *ngFor='let item of items'>
+        <app-timeline-card class='card' *ngIf='oddItems.includes(item); else blank' [item]='item' connectorSide='right'></app-timeline-card>
+    </ng-container>
+  </div>
+</div>
+<ng-template #blank>
+    <div class='blank'></div>
+</ng-template>

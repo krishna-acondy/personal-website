@@ -17,8 +17,8 @@ export class SidebarComponent implements OnInit {
   links = [
     { class: '', text: 'Home', target: '/'},
     { class: 'web-development', text: 'Web Development', target: '/web-development'},
-    { class: 'photography', text: 'Photography', target: '/photography'},
-    { class: 'design', text: 'Design', target: '/design'}
+    { class: 'design', text: 'Design', target: '/design'},
+    { class: 'photography', text: 'Photography', target: '/photography'}
   ];
 
   constructor(private router: Router) { }

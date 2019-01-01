@@ -1,4 +1,8 @@
-<div class='section-header web-development'>Web Development</div>
+<div class='section-header white'>Web Development</div>
 <div class='paragraph'>
-  Hello, world!
+  <br/>
+  <app-timeline [items]='timelineItems' fxHide fxShow.gt-sm></app-timeline>
+  <div fxHide fxShow.sm fxShow.lt-sm>
+    <app-timeline-card *ngFor='let item of timelineItems' [item]='item' class='job-card'></app-timeline-card>
+  </div>
 </div>
