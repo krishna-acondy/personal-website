@@ -1,34 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~angular-vertical-timeline/dist/vertical-timeline.css";
 
 @font-face {
-  font-family: 'Roboto Thin';
-  src: url('assets/fonts/roboto-thin.woff2') format('woff2'),
-      url('assets/fonts/roboto-thin.woff') format('woff'),
-      url('assets/fonts/roboto-thin.ttf')  format('truetype');
+  font-family: 'Google Sans Regular';
+  src: url('assets/fonts/GoogleSans-Regular.ttf')  format('truetype');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Roboto Regular';
-  src: url('assets/fonts/roboto-regular.woff2') format('woff2'),
-      url('assets/fonts/roboto-regular.woff') format('woff'),
-      url('assets/fonts/roboto-regular.ttf')  format('truetype');
+  font-family: 'Google Sans Medium';
+  src: url('assets/fonts/GoogleSans-Medium.ttf')  format('truetype');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Roboto Bold';
-  src: url('assets/fonts/roboto-bold.woff2') format('woff2'),
-      url('assets/fonts/roboto-bold.woff') format('woff'),
-      url('assets/fonts/roboto-bold.ttf')  format('truetype');
+  font-family: 'Google Sans Bold';
+  src: url('assets/fonts/GoogleSans-Bold.ttf')  format('truetype');
   font-weight: 100;
   font-style: normal;
 }
 
 * {
-  font-family: 'Roboto Regular';
+  font-family: 'Google Sans Regular';
 }
 
 html, body {
@@ -53,10 +48,10 @@ li.web-development {
   }
 }
 
-div.photography {
+div.design {
   color: #0699b3;
 }
-li.photography {
+li.design {
   &:hover {
     color: #0699b3;
   }
@@ -67,10 +62,10 @@ li.photography {
   }
 }
 
-div.design {
+div.photography {
   color: #0dce7e;
 }
-li.design {
+li.photography {
   &:hover {
     color: #0dce7e;
   }
@@ -83,4 +78,8 @@ li.design {
 
 .section-header {
   font-size: 3rem;
+}
+
+.white {
+  color: #ffffff;
 }
