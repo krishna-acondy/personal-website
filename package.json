@@ -1,5 +1,5 @@
 {
-  "name": "gallery",
+  "name": "krishna-acondy-personal-website",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "clean": "rm -rf ../krishna-acondy.github.io/* && rm -rf dist",
+    "build-for-deploy": "ng build --prod && cp -r ./dist/* ../krishna-acondy.github.io && cp ./CNAME ../krishna-acondy.github.io && cd ../krishna-acondy.github.io && cp index.html 404.html",
+    "deploy": "npm run clean && npm run build-for-deploy && git add . && git commit -m \"Updated Website\" && git push"
   },
   "private": true,
   "dependencies": {
