@@ -58,6 +58,7 @@ export class AppComponent {
   navigateTo(item: MenuItem) {
     document.querySelector('body').classList.remove('open');
     document.querySelector('body').style.backgroundColor = item.color;
+    document.querySelector('header').style.backgroundColor = item.color;
     this.router.navigateByUrl(item.link);
   }
 }
