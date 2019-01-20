@@ -16,6 +16,8 @@ export interface MenuItem {
   ]
 })
 export class AppComponent {
+  isMenuOpen = false;
+
   menuItems: MenuItem[] = [
     {
       name: 'Home',
@@ -41,6 +43,7 @@ export class AppComponent {
   }
 
   onClick() {
+    this.isMenuOpen = !this.isMenuOpen;
     const classList = document.querySelector('body').classList;
     classList.contains('open')
       ? classList.remove('open')

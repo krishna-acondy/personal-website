@@ -1,3 +1,16 @@
+@mixin image-button($url) {
+  width: 3rem;
+  height: 3rem;
+  margin: 0.25rem;
+  display: inline-block;
+  background: url($url);
+  background-size: cover;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
 :host {
   display: block;
 }
@@ -59,4 +72,34 @@ aside.sidebar {
       }
     }
   }
+}
+
+.contact {
+  opacity: 0;
+  margin-top: 15vh;
+  display: flex;
+  justify-content: center;
+  .github-logo {
+    @include image-button('../assets/images/github-logo.png');
+  }
+
+  .instagram-logo {
+    @include image-button('../assets/images/instagram-logo.png');
+  }
+
+  .linkedin-logo {
+    @include image-button('../assets/images/linkedin-logo.png');
+  }
+
+  .email-icon {
+    @include image-button('../assets/images/email.png');
+  }
+}
+
+.appear {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+  transition: transform 0.2s ease-out,
+              opacity 0.2s ease-out;
+  transition-delay: 1.25s; 
 }

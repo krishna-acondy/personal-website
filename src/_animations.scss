@@ -145,7 +145,17 @@ ul.menu {
       opacity: 0;
       content: attr(data-text);
       @include position-center;
-      color: $color;
+      // color: $color;
+      background: linear-gradient(
+        45deg,
+        #1974da 4%,
+        #19b3da 31%,
+        #16ceb7 66%,
+        #16ceb7 66%,
+        #16ceb7 66%,
+        #16ce84 100%); 
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       overflow: hidden;
       transform: translate(-24px, 6px);
       transition: transform 0.1s ease-out,
@@ -222,6 +232,14 @@ ul.menu {
     height: 100%;
     padding-bottom: 0;
     border-radius: 0;
-    background: rgba($color-dark, 0.98);
+    background: linear-gradient(
+        45deg,
+        #1974da 4%,
+        #19b3da 31%,
+        #16ceb7 66%,
+        #16ceb7 66%,
+        #16ceb7 66%,
+        #16ce84 100%); 
+    // background: rgba($color-dark, 0.98);
   }
 }

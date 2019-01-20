@@ -8,6 +8,20 @@
         (click)='navigateTo(menuItem.link)'>
           {{ menuItem.name }}
       </li>
+      <div class='contact' [ngClass]="{'appear': isMenuOpen}">
+        <a href='https://github.com/krishna-acondy' target='_blank' title='Github'>
+          <div class='github-logo'></div>
+        </a>
+        <a href='mailto:kc.acondy@outlook.com' target='_blank' title='Email'>
+          <div class='email-icon'></div>
+        </a>
+        <a href='https://www.linkedin.com/in/krishnachaitanyaa/' target='_blank' title='LinkedIn'>
+          <div class='linkedin-logo'></div>
+        </a>
+        <a href='https://www.instagram.com/lighttr1ck/' target='_blank' title='Instagram'>
+          <div class='instagram-logo'></div>
+        </a>
+      </div>
   </ul>
 </nav>
 <div class='body'>
