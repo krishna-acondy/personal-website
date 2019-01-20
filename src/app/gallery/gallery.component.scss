@@ -1,6 +1,5 @@
 .gallery {
   width: 100%;
-  height: calc(100% - 5px);
   background-color: #ffffff;
 
   .image-container {
@@ -8,14 +7,6 @@
     flex-direction: row;
     height: 100%;
     width: 100%;
-
-    .image {
-      flex: 5;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
 
     .arrow {
       flex: 1;
@@ -61,4 +52,44 @@
       background-color: rgb(168, 168, 168);
     }
   }
+}
+
+.thumbnails {
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto;
+  grid-row-gap: 3vh;
+  grid-column-gap: 3vh;
+}
+
+.thumbnail {
+  cursor: pointer;
+  width: 18vw;
+  height: 18vh;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.image {
+  height: calc(100vh - 20%);
+  width: calc(100vw - 20%);
+  position: absolute;
+  z-index: 11;
+  top: 5vh;
+  left: 10%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-mask {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

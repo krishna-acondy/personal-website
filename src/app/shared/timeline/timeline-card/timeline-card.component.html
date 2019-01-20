@@ -1,8 +1,7 @@
 <div class='card' *ngIf='item'>
-  <span class='time-period'>{{ item.timePeriod }}</span>
+  <!-- <span class='time-period'>{{ item.timePeriod }}</span> -->
   <span class='title'>{{ item.title }}</span>
   <span class='subtitle'>{{ item.subtitle }}</span>
   <br/>
   <span class='text' [innerHtml]="item.text | safe: 'html'">{{ item.text }}</span>
 </div>
-<hr class='connector' [ngClass]="{'left': connectorSide === 'left', 'right': connectorSide === 'right'}">

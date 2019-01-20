@@ -10,14 +10,14 @@ export class WebDevelopmentComponent implements OnInit {
 
   timelineItems: ITimelineItem[] = [
     {
-      timePeriod: 'June 2017 - Present',
+      timePeriod: 'Jun 2017 - Present',
       title: 'Senior Software Developer / UX Designer',
       subtitle: `Philips Digital and Computational Pathology
       Belfast, Northern Ireland`,
       text: 'Leading a team building a suite of applications for <a href="http://www.pathxl.com/computational-pathology-tissuemark">computer-aided cancer diagnosis</a>. Designed and implemented a common UI component library, and an automated testing framework.'
     },
     {
-      timePeriod: 'October 2014 - June 2017',
+      timePeriod: 'Oct 2014 - Jun 2017',
       title: 'Software Designer',
       subtitle: `Philips Connected Digital Propositions and Platforms
       Eindhoven, The Netherlands`,

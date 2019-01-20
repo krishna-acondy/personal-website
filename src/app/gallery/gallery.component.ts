@@ -48,6 +48,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   _images: IImage[] = [];
   currentImage: IImage;
   previousImage: IImage;
+  imageOpen = false;
 
   private timer: Subscription = new Subscription();
 
@@ -65,8 +66,13 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
     if (event.key === 'ArrowRight') {
       this.next();
+    }
+
+    if (event.key === 'Escape') {
+      this.currentImage = null;
+      this.imageOpen = false;
+    }
   }
-}
 
   ngOnInit() {
     if (this.config.mode === GalleryMode.SlideShow) {
@@ -112,5 +118,10 @@ export class GalleryComponent implements OnInit, OnDestroy {
         ? this._images.length - 1
         : this._images.indexOf(this.currentImage) - 1;
     this.currentImage = this._images[index];
+  }
+
+  enlarge(image: IImage) {
+    this.imageOpen = true;
+    this.currentImage = image;
   }
 }

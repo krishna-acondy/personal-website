@@ -1,6 +1,9 @@
 <div class='gallery'>
   <div class='image-container'>
-    <div class='arrow'><span (click)='previous()'>&lt;</span></div>
+    <div class='thumbnails'>
+      <img class='thumbnail' *ngFor='let image of _images' [src]='image.url' (click)='enlarge(image)'/>
+    </div>
+    <!-- <div class='arrow'><span (click)='previous()'>&lt;</span></div>
     <div class='image' [@appear]='currentIndex'
       *ngIf='_images.length'
       [style.backgroundImage]='getUrl(currentImage)'
@@ -14,5 +17,12 @@
   </div>
   <div class='progress-bar'>
     <div class='progress' [style.backgroundColor]='config.progressBarColor' [style.width]='progress.value' [@ease]='progress'></div>
-  </div>
+  </div> -->
 </div>
+
+<ng-container *ngIf='imageOpen'>
+  <div class='page-mask' (click)='imageOpen = false;'></div>
+  <div class='image' [@appear]='currentIndex'
+    [style.backgroundImage]='getUrl(currentImage)'>
+  </div>
+</ng-container>
