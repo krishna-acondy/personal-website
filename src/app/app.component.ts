@@ -6,6 +6,7 @@ import { appear } from './shared/animations';
 export interface MenuItem {
   name: string;
   link: string;
+  color: string;
 }
 @Component({
   selector: 'app-root',
@@ -21,19 +22,23 @@ export class AppComponent {
   menuItems: MenuItem[] = [
     {
       name: 'Home',
-      link: '/'
+      link: '/',
+      color: '#ffffff'
     },
     {
       name: 'Web Development',
-      link: 'web-development'
+      link: 'web-development',
+      color: '#129efc'
     },
     {
       name: 'Design',
-      link: 'design'
+      link: 'design',
+      color: '#0699b3'
     },
     {
       name: 'Photography',
-      link: 'photography'
+      link: 'photography',
+      color: '#ffffff'
     }
   ];
   constructor(private router: Router) { }
@@ -50,8 +55,9 @@ export class AppComponent {
       : classList.add('open');
   }
 
-  navigateTo(link: string) {
+  navigateTo(item: MenuItem) {
     document.querySelector('body').classList.remove('open');
-    this.router.navigateByUrl(link);
+    document.querySelector('body').style.backgroundColor = item.color;
+    this.router.navigateByUrl(item.link);
   }
 }

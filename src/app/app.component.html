@@ -5,7 +5,7 @@
       <li *ngFor='let menuItem of menuItems'
         class='subtitle'
         [attr.data-text]='menuItem.name'
-        (click)='navigateTo(menuItem.link)'>
+        (click)='navigateTo(menuItem)'>
           {{ menuItem.name }}
       </li>
       <div class='contact' [ngClass]="{'appear': isMenuOpen}">
@@ -26,7 +26,7 @@
 </nav>
 <div class='body'>
   <router-outlet></router-outlet>
-    <div class='hero' *ngIf='isHome'>
+    <div class='hero' *ngIf='isHome' ngClass.gt-sm='padded-gt-sm' [ngClass.sm]='padded' ngClass.lt-sm='padded'>
       <div class='intro large' [@appear]>
         <div class='title'>Hi, I'm Krishna Acondy.</div>
         <div routerLink='web-development' class='subtitle web-development'>I'm a web developer.</div>

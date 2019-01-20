@@ -188,10 +188,8 @@ ul.menu {
 } 
 
 .body {
-  padding: 24px;
-  max-width: 80vw;
-  margin: 60px auto;
   transition: 0.2s ease-out;
+  height: 100%;
   .open & {
     transform: scale(0.92);
     transition: transform 0.2s 0.41s ease-out;
