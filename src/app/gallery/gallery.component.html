@@ -1,28 +1,12 @@
-<div class='gallery'>
-  <div class='image-container'>
-    <div class='thumbnails'>
-      <img class='thumbnail' *ngFor='let image of _images' [src]='image.url' (click)='enlarge(image)'/>
-    </div>
-    <!-- <div class='arrow'><span (click)='previous()'>&lt;</span></div>
-    <div class='image' [@appear]='currentIndex'
-      *ngIf='_images.length'
-      [style.backgroundImage]='getUrl(currentImage)'
-      [style.backgroundSize]='imageMode'
-      (click)='next()'>
-    </div>
-    <div class='arrow'><span (click)='next()'>&gt;</span></div>
-  </div>
-  <div class='caption'>
-    {{ currentIndex + 1}} / {{ _images.length }} - {{ currentImage.caption }}
-  </div>
-  <div class='progress-bar'>
-    <div class='progress' [style.backgroundColor]='config.progressBarColor' [style.width]='progress.value' [@ease]='progress'></div>
-  </div> -->
-</div>
-
-<ng-container *ngIf='imageOpen'>
+  <ngx-masonry [options]='options' [useImagesLoaded]='true' class='thumbnails'>
+    <img ngxMasonryItem class='thumbnail' *ngFor='let image of _images' [src]='image.url' (click)='enlarge(image)'/>
+  </ngx-masonry>
+<ng-container *ngIf='imageOpen && currentImage'>
   <div class='page-mask' (click)='imageOpen = false;'></div>
   <div class='image' [@appear]='currentIndex'
     [style.backgroundImage]='getUrl(currentImage)'>
+    <div class='caption'>
+      {{ currentIndex + 1}} / {{ _images.length }} - {{ currentImage.caption }}
+    </div>
   </div>
 </ng-container>

@@ -34,6 +34,17 @@ html, body {
   overflow-x: hidden;
 }
 
+body {
+  background: linear-gradient(
+        45deg,
+        #1974da 4%,
+        #19b3da 31%,
+        #16ceb7 66%,
+        #16ceb7 66%,
+        #16ceb7 66%,
+        #16ce84 100%);
+}
+
 div.web-development {
   color: #129efc;
 }
@@ -78,6 +89,39 @@ li.photography {
 
 .section-header {
   font-size: 3rem;
+  position: relative;
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  z-index: 1;
+  padding: 0.25%;
+
+  &.dark {
+    color: #ffffff;
+    background-color: transparent;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .text {
+    position: relative;
+    z-index: 3;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom left;
+    transform: skewX(-30deg);
+    z-index: 2;
+  }
 }
 
 .white {

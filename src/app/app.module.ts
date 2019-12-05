@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { NgVerticalTimelineModule  } from 'ng-vertical-timeline';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -47,6 +49,8 @@ export const routes: Route[] = [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    NgVerticalTimelineModule,
+    NgxMasonryModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

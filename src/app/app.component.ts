@@ -1,7 +1,9 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { appear } from './shared/animations';
+import { Observable, fromEvent } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 export interface MenuItem {
   name: string;
@@ -16,7 +18,10 @@ export interface MenuItem {
     appear
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  @ViewChild('body', {static: true})
+  body: ElementRef;
+
   isMenuOpen = false;
 
   menuItems: MenuItem[] = [
@@ -42,6 +47,12 @@ export class AppComponent {
     }
   ];
   constructor(private router: Router) { }
+  scrollPosition$: Observable<number>;
+
+  ngOnInit() {
+    this.scrollPosition$ = fromEvent(document.body, 'scroll')
+      .pipe(map((scrollEvent: any) => scrollEvent.target.scrollTop));
+  }
 
   get isHome() {
     return this.router.url === '/';
@@ -57,8 +68,6 @@ export class AppComponent {
 
   navigateTo(item: MenuItem) {
     document.querySelector('body').classList.remove('open');
-    document.querySelector('body').style.backgroundColor = item.color;
-    document.querySelector('header').style.backgroundColor = item.color;
     this.router.navigateByUrl(item.link);
   }
 }
