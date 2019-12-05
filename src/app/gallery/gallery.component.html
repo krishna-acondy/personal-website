@@ -2,11 +2,13 @@
     <img ngxMasonryItem class='thumbnail' *ngFor='let image of _images' [src]='image.url' (click)='enlarge(image)'/>
   </ngx-masonry>
 <ng-container *ngIf='imageOpen && currentImage'>
-  <div class='page-mask' (click)='imageOpen = false;'>
-    <div class='image' [@appear]='currentIndex'
-    (swipeleft)='currentImage = _images[currentIndex + 1] || _images[0]'
-    (swiperight)='currentImage = _images[currentIndex - 1] || _images[_images.length - 1]'
-    [style.backgroundImage]='getUrl(currentImage)'>
+  <div class='page-mask' (click)='onClose()'>
+    <div #image class='image' [@appear]='currentIndex'
+    (pan)='onPan($event)'
+    (pinch)='onPinch($event)'
+    (swipeleft)='onSwipeLeft()'
+    (swiperight)='onSwipeRight()'
+    [style.backgroundImage]='getUrl(currentImage)' [style.transform]='currentTransform'>
       <div class='caption'>
         {{ currentIndex + 1}} / {{ _images.length }} - {{ currentImage.caption }}
       </div>

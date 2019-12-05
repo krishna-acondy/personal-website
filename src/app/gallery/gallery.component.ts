@@ -6,6 +6,7 @@ import { IImage } from './models/image.interface';
 import { IConfiguration } from './models/configuration.interface';
 import { GalleryMode } from './models/gallery-mode';
 import { Scaling } from './models/scaling';
+import { DomSanitizer } from '@angular/platform-browser';
 export function shouldAnimate(x, y) {
   return y !== 'void';
 }
@@ -23,6 +24,8 @@ export function shouldAnimate(x, y) {
   ]
 })
 export class GalleryComponent {
+
+  constructor(private domSanitizer: DomSanitizer) { }
 
   @Input()
   config: IConfiguration = {
@@ -44,6 +47,9 @@ export class GalleryComponent {
   _images: IImage[] = [];
   currentImage: IImage;
   previousImage: IImage;
+  currentScale = 1;
+  currentX = 0;
+  currentY = 0;
   imageOpen = false;
 
   options: NgxMasonryOptions = {
@@ -53,6 +59,10 @@ export class GalleryComponent {
 
   get currentIndex() {
     return this._images.indexOf(this.currentImage);
+  }
+
+  get currentTransform() {
+    return this.domSanitizer.bypassSecurityTrustStyle(`translateX(${this.currentX}px) translateY(${this.currentY}px) scale(${this.currentScale})`);
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -100,5 +110,36 @@ export class GalleryComponent {
   enlarge(image: IImage) {
     this.imageOpen = true;
     this.currentImage = image;
+  }
+
+  onClose() {
+    this.imageOpen = false;
+    this.reset();
+  }
+
+  onPan(event) {
+    this.currentX = event.center.x;
+    this.currentY = event.center.y;
+  }
+
+  onPinch(event) {
+    this.reset();
+    this.currentScale = event.scale;
+  }
+
+  onSwipeLeft() {
+    this.currentImage = this._images[this.currentIndex + 1] || this._images[0];
+    this.reset();
+  }
+
+  onSwipeRight() {
+    this.currentImage = this._images[this.currentIndex - 1] || this._images[this._images.length - 1];
+    this.reset();
+  }
+
+  private reset() {
+    this.currentScale = 1;
+    this.currentX = 0;
+    this.currentY = 0;
   }
 }
