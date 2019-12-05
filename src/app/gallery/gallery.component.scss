@@ -1,70 +1,28 @@
-.gallery {
+.caption {
+  float: left;
+  overflow: visible;
+  position: relative;
   width: 100%;
-  background-color: #ffffff;
-
-  .image-container {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
-
-    .arrow {
-      flex: 1;
-      outline: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: #808080;
-      cursor: pointer;
-
-      &:focus, &:active {
-        border: 0;
-        outline: none;
-      }
-    }
-  }
-
-  .caption {
-    float: left;
-    overflow: visible;
-    position: relative;
-    bottom: 10%;
-    z-index: 1000;
-    color: #ffffff;
-    height: 2em;
-    opacity: 0.6;
-    background-color: #000000;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2%;
-    box-sizing: border-box;
-  }
-
-  .progress-bar {
-    height: 5px;
-    background-color: rgb(46, 46, 46);
-
-    .progress {
-      height: 5px;
-      background-color: rgb(168, 168, 168);
-    }
-  }
-}
-
-.thumbnails {
-  display: inline-grid;
-  grid-template-columns: auto auto auto auto;
-  grid-row-gap: 3vh;
-  grid-column-gap: 3vh;
+  top: calc(100vh - 20%);
+  z-index: 1000;
+  color: #ffffff;
+  height: 2em;
+  opacity: 0.6;
+  background-color: #000000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  box-sizing: border-box;
 }
 
 .thumbnail {
   cursor: pointer;
-  width: 18vw;
-  height: 18vh;
+  margin-bottom: 10px;
+  padding: 6px;
+  width: 30%;
+  height: auto;
   box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 
   &:hover {
@@ -73,12 +31,12 @@
 }
 
 .image {
-  height: calc(100vh - 20%);
-  width: calc(100vw - 20%);
+  height: calc(100vh - 10%);
+  width: calc(100vw - 10%);
   position: absolute;
   z-index: 11;
   top: 5vh;
-  left: 10%;
+  left: 5vw;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -92,4 +50,7 @@
   right: 0;
   bottom: 0;
   left: 0;
+  backdrop-filter: blur(5px);
 }
+
+

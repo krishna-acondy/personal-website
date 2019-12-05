@@ -1,6 +1,7 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit, Input, OnDestroy, HostListener } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { NgxMasonryOptions } from 'ngx-masonry';
 
 import { IImage } from './models/image.interface';
 import { IConfiguration } from './models/configuration.interface';
@@ -13,20 +14,14 @@ import { Scaling } from './models/scaling';
   styleUrls: ['./gallery.component.scss'],
   animations: [
     trigger('appear', [
-      transition('* => *', [
+      transition((_, y) => y !== 'void', [
         style({ opacity: 0 }),
         animate('400ms ease-in-out', style({opacity: 1}))
-      ])
-    ]),
-    trigger('ease', [
-      transition('* => *', [
-        style({ width: '{{previousProgress}}' }),
-        animate('400ms ease-in-out', style({width: '{{progress}}'}))
       ])
     ])
   ]
 })
-export class GalleryComponent implements OnInit, OnDestroy {
+export class GalleryComponent {
 
   @Input()
   config: IConfiguration = {
@@ -50,40 +45,21 @@ export class GalleryComponent implements OnInit, OnDestroy {
   previousImage: IImage;
   imageOpen = false;
 
-  private timer: Subscription = new Subscription();
+  options: NgxMasonryOptions = {
+    columnWidth: 500,
+    itemSelector: '.thumbnail'
+  };
 
   get currentIndex() {
     return this._images.indexOf(this.currentImage);
   }
 
-  constructor() { }
-
   @HostListener('document:keydown', ['$event'])
   onKeyPress(event: KeyboardEvent) {
-    if (event.key === 'ArrowLeft') {
-        this.previous();
-    }
-
-    if (event.key === 'ArrowRight') {
-      this.next();
-    }
-
     if (event.key === 'Escape') {
       this.currentImage = null;
       this.imageOpen = false;
     }
-  }
-
-  ngOnInit() {
-    if (this.config.mode === GalleryMode.SlideShow) {
-      this.timer = interval(this.config.interval).subscribe(() => {
-        this.next();
-      });
-    }
-  }
-
-  ngOnDestroy() {
-    this.timer.unsubscribe();
   }
 
   getUrl = (image: IImage) => `url('${image.url}')`;
