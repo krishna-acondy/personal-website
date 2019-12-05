@@ -118,8 +118,8 @@ export class GalleryComponent {
   }
 
   onPan(event) {
-    this.currentX = event.center.x;
-    this.currentY = event.center.y;
+    this.currentX = event.deltaX;
+    this.currentY = event.deltaY;
   }
 
   onPinch(event) {
