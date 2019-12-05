@@ -14,7 +14,7 @@ import { Scaling } from './models/scaling';
   styleUrls: ['./gallery.component.scss'],
   animations: [
     trigger('appear', [
-      transition((_, y) => y !== 'void', [
+      transition(function(_, y) { return y !== 'void'; } , [
         style({ opacity: 0 }),
         animate('400ms ease-in-out', style({opacity: 1}))
       ])
