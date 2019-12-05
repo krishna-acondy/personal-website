@@ -1,20 +1,21 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component, OnInit, Input, OnDestroy, HostListener } from '@angular/core';
-import { interval, Subscription } from 'rxjs';
+import { Component, Input, HostListener } from '@angular/core';
 import { NgxMasonryOptions } from 'ngx-masonry';
 
 import { IImage } from './models/image.interface';
 import { IConfiguration } from './models/configuration.interface';
 import { GalleryMode } from './models/gallery-mode';
 import { Scaling } from './models/scaling';
-
+export function shouldAnimate(x, y) {
+  return y !== 'void';
+}
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
   animations: [
     trigger('appear', [
-      transition(function(_, y) { return y !== 'void'; } , [
+      transition(shouldAnimate , [
         style({ opacity: 0 }),
         animate('400ms ease-in-out', style({opacity: 1}))
       ])
