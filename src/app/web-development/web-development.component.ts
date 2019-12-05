@@ -12,7 +12,7 @@ export class WebDevelopmentComponent implements OnInit {
     {
       id: 0,
       icon: 'assets/images/programming.svg',
-      date: 'Jun 2017 - Present',
+      date: 'Jun 2017 - Nov 2019',
       title: 'Senior Software Developer / UX Designer',
       content: `<strong>Philips Digital and Computational Pathology</strong>\nBelfast, Northern Ireland\nLed a team building a suite of applications for <a href="http://www.pathxl.com/computational-pathology-tissuemark">computer-aided cancer diagnosis</a>.\nDesigned and implemented a common UI component library, and an automated testing framework.`
     },
