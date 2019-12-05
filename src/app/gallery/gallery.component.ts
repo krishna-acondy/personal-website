@@ -47,7 +47,7 @@ export class GalleryComponent {
   imageOpen = false;
 
   options: NgxMasonryOptions = {
-    columnWidth: 500,
+    columnWidth: '.thumbnail',
     itemSelector: '.thumbnail'
   };
 
