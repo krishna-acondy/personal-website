@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { NgVerticalTimelineModule  } from 'ng-vertical-timeline';
 import { NgxMasonryModule } from 'ngx-masonry';
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -13,6 +12,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { WebDevelopmentComponent } from './web-development/web-development.component';
 import { PhotographyComponent } from './photography/photography.component';
 import { DesignComponent } from './design/design.component';
+import { TimelineComponent } from './shared/timeline/timeline.component';
 
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -41,13 +41,13 @@ export const routes: Route[] = [
     GalleryComponent,
     WebDevelopmentComponent,
     PhotographyComponent,
-    DesignComponent
+    DesignComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    NgVerticalTimelineModule,
     NgxMasonryModule,
     RouterModule.forRoot(routes)
   ],
