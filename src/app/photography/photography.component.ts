@@ -1,15 +1,11 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-
-import { GalleryMode } from '../gallery/models/gallery-mode';
-import { IConfiguration } from '../gallery/models/configuration.interface';
-import { Scaling } from '../gallery/models/scaling';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-photography',
   templateUrl: './photography.component.html',
   styleUrls: ['./photography.component.scss']
 })
-export class PhotographyComponent implements OnInit {
+export class PhotographyComponent {
   isDarkMode = false;
   albums = ['japan', 'netherlands', 'paris', 'coorg', 'bylakuppe'];
   currentAlbum = 'japan';
@@ -76,16 +72,7 @@ export class PhotographyComponent implements OnInit {
     { url: 'assets/images/bylakuppe/8.png', caption: 'Bylakuppe, India' }
   ];
 
-  config: IConfiguration = {
-    mode: GalleryMode.Default,
-    interval: 5000,
-    progressBarColor: '#0699b3',
-    scaling: Scaling.Cover
-  };
   constructor(private elementRef: ElementRef) { }
-
-  ngOnInit() {
-  }
 
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;

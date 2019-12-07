@@ -8,5 +8,5 @@
   <a class='dark-mode-button' (click)='toggleDarkMode()' [title]='isDarkMode ? "Light mode" : "Dark mode"'>{{isDarkMode ? '☀️' : '🔦'}}</a>
 </div>
 <div class='gallery-container' [ngClass]="{'dark': isDarkMode}">
-  <app-gallery [images]='this[currentAlbum]' [config]='config'></app-gallery>
+  <app-gallery [images]='this[currentAlbum]'></app-gallery>
 </div>

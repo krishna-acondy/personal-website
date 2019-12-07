@@ -146,6 +146,7 @@ ul.menu {
       content: attr(data-text);
       @include position-center;
       background-color: $color-dark;
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       overflow: hidden;

@@ -10,14 +10,9 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { WebDevelopmentComponent } from './web-development/web-development.component';
 import { PhotographyComponent } from './photography/photography.component';
 import { DesignComponent } from './design/design.component';
-import { TimelineComponent } from './shared/timeline/timeline.component';
-import { TimelineCardComponent } from './shared/timeline/timeline-card/timeline-card.component';
-import { SafePipe } from './shared/safe.pipe';
 
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -44,14 +39,9 @@ export const routes: Route[] = [
   declarations: [
     AppComponent,
     GalleryComponent,
-    SidebarComponent,
-    MenuBarComponent,
     WebDevelopmentComponent,
     PhotographyComponent,
-    DesignComponent,
-    TimelineComponent,
-    TimelineCardComponent,
-    SafePipe
+    DesignComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ITimelineItem } from '../shared/timeline/timeline.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-web-development',
   templateUrl: './web-development.component.html',
   styleUrls: ['./web-development.component.scss']
 })
-export class WebDevelopmentComponent implements OnInit {
+export class WebDevelopmentComponent {
 
   timelineItems = [
     {
@@ -45,10 +44,4 @@ export class WebDevelopmentComponent implements OnInit {
       content: `Infosys Limited\nMysore, India\nWorked on several web development projects in the banking and healthcare domains.`
     }
   ];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
