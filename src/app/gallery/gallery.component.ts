@@ -7,18 +7,28 @@ import { IConfiguration } from './models/configuration.interface';
 import { GalleryMode } from './models/gallery-mode';
 import { Scaling } from './models/scaling';
 import { DomSanitizer } from '@angular/platform-browser';
+
 export function shouldAnimate(x, y) {
-  return y !== 'void';
+  return x !== 'void' && y !== 'void';
 }
+
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
   animations: [
     trigger('appear', [
+      transition('void => *' , [
+        style({ opacity: 0 }),
+        animate('400ms ease-in-out', style({opacity: 1}))
+      ]),
       transition(shouldAnimate , [
         style({ opacity: 0 }),
         animate('400ms ease-in-out', style({opacity: 1}))
+      ]),
+      transition('* => void' , [
+        style({ opacity: 1 }),
+        animate('400ms ease-in-out', style({opacity: 0}))
       ])
     ])
   ]
@@ -48,8 +58,8 @@ export class GalleryComponent {
   currentImage: IImage;
   previousImage: IImage;
   currentScale = 1;
-  currentX = 0;
-  currentY = 0;
+  currentDeltaX = 0;
+  currentDeltaY = 0;
   imageOpen = false;
 
   options: NgxMasonryOptions = {
@@ -62,7 +72,7 @@ export class GalleryComponent {
   }
 
   get currentTransform() {
-    return this.domSanitizer.bypassSecurityTrustStyle(`translateX(${this.currentX}px) translateY(${this.currentY}px) scale(${this.currentScale})`);
+    return this.domSanitizer.bypassSecurityTrustStyle(`translateX(${this.currentDeltaX}px) translateY(${this.currentDeltaY}px) scale(${this.currentScale})`);
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -73,7 +83,7 @@ export class GalleryComponent {
     }
   }
 
-  getUrl = (image: IImage) => `url('${image.url}')`;
+  getUrl = (image: IImage) => image ? `url('${image.url}')` : '';
 
   get progress() {
     const value = this._images.length
@@ -114,12 +124,15 @@ export class GalleryComponent {
 
   onClose() {
     this.imageOpen = false;
+    this.currentImage = null;
     this.reset();
   }
 
   onPan(event) {
-    this.currentX = event.deltaX;
-    this.currentY = event.deltaY;
+    if (this.currentScale !== 1) {
+      this.currentDeltaX = event.deltaX;
+      this.currentDeltaY = event.deltaY;
+    }
   }
 
   onPinch(event) {
@@ -139,7 +152,7 @@ export class GalleryComponent {
 
   private reset() {
     this.currentScale = 1;
-    this.currentX = 0;
-    this.currentY = 0;
+    this.currentDeltaX = 0;
+    this.currentDeltaY = 0;
   }
 }

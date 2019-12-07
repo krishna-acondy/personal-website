@@ -5,6 +5,8 @@ import { Route, RouterModule } from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { NgVerticalTimelineModule  } from 'ng-vertical-timeline';
 import { NgxMasonryModule } from 'ngx-masonry';
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -16,6 +18,12 @@ import { DesignComponent } from './design/design.component';
 import { TimelineComponent } from './shared/timeline/timeline.component';
 import { TimelineCardComponent } from './shared/timeline/timeline-card/timeline-card.component';
 import { SafePipe } from './shared/safe.pipe';
+
+export class HammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    'swipe': { direction: Hammer.DIRECTION_ALL }
+  };
+}
 
 export const routes: Route[] = [
   {
@@ -53,7 +61,12 @@ export const routes: Route[] = [
     NgxMasonryModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

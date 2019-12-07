@@ -5,7 +5,7 @@
 </div>
 <div class='albums' [ngClass]="{'dark': isDarkMode}">
   <a *ngFor='let album of albums' (click)='currentAlbum = album' [ngClass]="{'active': currentAlbum === album}">{{album | titlecase}}</a>
-  <a class='dark-mode-button' (click)='toggleDarkMode()'>{{isDarkMode ? '☀️' : '🔦'}}</a>
+  <a class='dark-mode-button' (click)='toggleDarkMode()' [title]='isDarkMode ? "Light mode" : "Dark mode"'>{{isDarkMode ? '☀️' : '🔦'}}</a>
 </div>
 <div class='gallery-container' [ngClass]="{'dark': isDarkMode}">
   <app-gallery [images]='this[currentAlbum]' [config]='config'></app-gallery>
