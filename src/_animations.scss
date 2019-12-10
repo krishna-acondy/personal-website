@@ -18,6 +18,10 @@ html, body {
   width:100%;
 }
 
+body.dark {
+  background-color: #000000;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -29,7 +33,7 @@ ul {
   }
 }
 
-button {
+.menu-toggle {
   opacity: 0.45;
   background-color: transparent;
   position: fixed;
@@ -111,6 +115,11 @@ nav {
     transform: scale(0.04), translateY(9999px);
     overflow: hidden;
   }
+
+  &.dark:before {
+    background: rgba(#2e2e2e, 1);
+  }
+
   .open & {
     top: 0;
     &:before {
@@ -178,6 +187,12 @@ ul.menu {
       }
     }
   }
+
+  &.dark {
+    li:after {
+      background-color: #2e2e2e;
+    }
+  }
 }
 
 .body {
@@ -223,14 +238,15 @@ ul.menu {
     height: 100%;
     padding-bottom: 0;
     border-radius: 0;
-    // background: linear-gradient(
-    //     45deg,
-    //     #1974da 4%,
-    //     #19b3da 31%,
-    //     #16ceb7 66%,
-    //     #16ceb7 66%,
-    //     #16ceb7 66%,
-    //     #16ce84 100%);
-    background: rgba($color-dark, 0.98);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  ul.menu {
+    top: 65%;
+  }
+
+  .body {
+    padding-top: 12vh;
   }
 }

@@ -33,6 +33,10 @@ export class TimelineComponent {
   set data(events: TimelineEvent[]) {
     this._data = events.map(e => { e.show = false; return e; });
   }
+
+  @Input()
+  isDarkMode = false;
+
   @Input()
   primaryColor: string;
 

@@ -1,11 +1,11 @@
-<header class='header'>
-  <button class='menu-toggle' (click)='onClick()' *ngIf='!(scrollPosition$ | async)'>
-  </button>
-</header>
-<nav>
+<button class='menu-toggle' (click)='onClick()' *ngIf='!(scrollPosition$ | async)'>
+</button>
+<button class='dark-mode-button' (click)='toggleDarkMode()' [title]='(isDarkMode$ | async) ? "Light mode" : "Dark mode"'>{{(isDarkMode$ | async) ? '☀️' : '🔦'}}
+</button>
+<nav [ngClass]='(isDarkMode$ | async) ? "dark" : ""'>
   <button class='menu-toggle' (click)='onClick()'>
   </button>
-  <ul class='menu'>
+  <ul class='menu' [ngClass]='(isDarkMode$ | async) ? "dark" : ""'>
       <li *ngFor='let menuItem of menuItems'
         class='subtitle'
         [attr.data-text]='menuItem.name'
@@ -28,14 +28,14 @@
       </div>
   </ul>
 </nav>
-<div class='body' #body>
+<div class='body' #body [ngClass]='(isDarkMode$ | async) ? "dark" : ""'>
   <router-outlet></router-outlet>
     <div class='hero' *ngIf='isHome' ngClass.gt-sm='padded-gt-sm' [ngClass.sm]='padded' ngClass.lt-sm='padded'>
       <div class='intro large' [@appear]>
         <div class='title'>Hi, I'm Krishna Acondy.</div>
-        <div routerLink='web-development' class='subtitle'>I'm a web developer.</div>
-        <div routerLink='design' class='subtitle'>I design.</div>
-        <div routerLink='photography' class='subtitle'>I take pictures.</div>
+        <a (click)='goToLink("web-development")' class='subtitle'>I'm a web developer.</a>
+        <a (click)='goToLink("design")' class='subtitle'>I design.</a>
+        <a (click)='goToLink("photography")' class='subtitle'>I take pictures.</a>
       </div>
     </div>
 </div>

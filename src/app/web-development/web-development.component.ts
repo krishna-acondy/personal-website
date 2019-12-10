@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ThemeService } from '../shared/theme.service';
 
 @Component({
   selector: 'app-web-development',
@@ -6,6 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./web-development.component.scss']
 })
 export class WebDevelopmentComponent {
+  isDarkMode$: Observable<boolean>;
+  constructor(themeService: ThemeService) {
+    this.isDarkMode$ = themeService.darkMode;
+  }
 
   timelineItems = [
     {

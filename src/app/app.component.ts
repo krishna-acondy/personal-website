@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { appear } from './shared/animations';
 import { Observable, fromEvent } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { ThemeService } from './shared/theme.service';
 
 export interface MenuItem {
   name: string;
@@ -46,7 +47,12 @@ export class AppComponent implements OnInit {
       color: '#ffffff'
     }
   ];
-  constructor(private router: Router) { }
+  isDarkMode$: Observable<boolean>;
+  currentUrl: string;
+
+  constructor(private router: Router, private themeService: ThemeService) {
+    this.isDarkMode$ = themeService.darkMode;
+  }
   scrollPosition$: Observable<number>;
 
   ngOnInit() {
@@ -68,6 +74,15 @@ export class AppComponent implements OnInit {
 
   navigateTo(item: MenuItem) {
     document.querySelector('body').classList.remove('open');
-    this.router.navigateByUrl(item.link);
+    this.goToLink(item.link);
+  }
+
+  goToLink(link: string) {
+    this.currentUrl = link;
+    this.router.navigateByUrl(link);
+  }
+
+  toggleDarkMode() {
+    this.themeService.toggleDarkMode();
   }
 }

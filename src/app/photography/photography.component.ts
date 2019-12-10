@@ -1,12 +1,16 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, shareReplay, tap } from 'rxjs/operators';
+import { ThemeService } from '../shared/theme.service';
 
 @Component({
   selector: 'app-photography',
   templateUrl: './photography.component.html',
   styleUrls: ['./photography.component.scss']
 })
-export class PhotographyComponent {
-  isDarkMode = false;
+export class PhotographyComponent implements OnInit {
+  isDarkMode$: Observable<boolean>;
   albums = ['japan', 'netherlands', 'paris', 'coorg', 'bylakuppe'];
   currentAlbum = 'japan';
   japan = [
@@ -72,15 +76,19 @@ export class PhotographyComponent {
     { url: 'assets/images/bylakuppe/8.png', caption: 'Bylakuppe, India' }
   ];
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(
+    private themeService: ThemeService,
+    private elementRef: ElementRef) { }
 
-  toggleDarkMode() {
-    this.isDarkMode = !this.isDarkMode;
-    if (this.isDarkMode) {
-      this.elementRef.nativeElement.className += ' dark';
-    } else {
-      this.elementRef.nativeElement.className = this.elementRef.nativeElement.className.replace(/ dark/g, '');
-    }
+  ngOnInit() {
+    this.isDarkMode$ = this.themeService.darkMode
+    .pipe(
+      tap((isDarkMode) => {
+        if (isDarkMode) {
+          this.elementRef.nativeElement.className += ' dark';
+        } else {
+          this.elementRef.nativeElement.className = this.elementRef.nativeElement.className.replace(/dark/g, '');
+        }
+      }));
   }
-
 }

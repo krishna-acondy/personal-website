@@ -1,6 +1,6 @@
 <div class='timeline'>
     <div *ngFor='let item of data'>
-      <div class='container left' [ngClass]="{'left': isPair(item.id), 'right': !isPair(item.id), 'active': item.show}">
+      <div class='container left' [ngClass]="{'left': isPair(item.id), 'right': !isPair(item.id), 'active': item.show, 'dark': isDarkMode}">
         <div class='inner'>
           <div class='head' [style.backgroundColor]='primaryColor' (click)='toggle(item)'>
             <div class='icon'>
@@ -11,7 +11,7 @@
               <span class='title-text'>{{item.title}}</span>
             </div>
           </div>
-          <div class='body' [hidden]='!item.show' [@slide]='item.show'>
+          <div class='body' [hidden]='!item.show' [@slide]='item.show' [ngClass]='isDarkMode ? "dark" : ""'>
             <p [innerHTML]='item.content'></p>
           </div>
         </div>

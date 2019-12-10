@@ -49,7 +49,7 @@ export const routes: Route[] = [
     BrowserAnimationsModule,
     FlexLayoutModule,
     NgxMasonryModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
   ],
   providers: [
     {
