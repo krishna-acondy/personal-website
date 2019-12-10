@@ -18,8 +18,19 @@ html, body {
   width:100%;
 }
 
-body.dark {
-  background-color: #000000;
+body {
+  background: linear-gradient(
+        45deg,
+        #1974da 4%,
+        #19b3da 31%,
+        #16ceb7 66%,
+        #16ceb7 66%,
+        #16ceb7 66%,
+        #16ce84 100%);
+
+  &.dark {
+    background: #000000;
+  }
 }
 
 ul {
