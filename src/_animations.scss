@@ -241,12 +241,18 @@ ul.menu {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (min-width: 601px) {
   ul.menu {
     top: 65%;
   }
 
   .body {
-    padding-top: 12vh;
+    padding-top: 15vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .body {
+    padding-top: 3vh;
   }
 }
