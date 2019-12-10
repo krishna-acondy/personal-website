@@ -18,6 +18,18 @@ export class ThemeService {
     this.darkModeSubject.next(this._darkMode);
   }
 
+  lightenBody() {
+    const bodyClassList = document.querySelector('body').classList;
+    bodyClassList.add('white');
+  }
+
+  unlightenBody() {
+    const bodyClassList = document.querySelector('body').classList;
+    if (bodyClassList.contains('white')) {
+      bodyClassList.remove('white');
+    };
+  }
+
   get darkMode() {
     return this.darkModeSubject
       .asObservable()
