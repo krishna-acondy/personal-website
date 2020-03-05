@@ -17,33 +17,40 @@ export class WebDevelopmentComponent {
     {
       id: 0,
       icon: 'assets/images/programming.svg',
-      date: 'Jun 2017 - Nov 2019',
-      title: 'Senior Software Developer / UI Designer',
-      content: `<strong>Philips Digital and Computational Pathology\n<p class='place'>Belfast, Northern Ireland</p></strong>\nLed a team building a suite of applications for <a href="http://www.pathxl.com/computational-pathology-tissuemark">computer-aided cancer diagnosis</a>.\nDesigned and implemented a common UI component library, and an automated testing framework.`
+      date: 'Dec 2019 - Present',
+      title: 'Senior Frontend Engineer, Apps',
+      content: `<strong>ScreenCloud\n<p class='place'>Belfast, Northern Ireland</p></strong>\nBuilding apps that provide integrations between various third parties and the <a target="_blank" href="https://screen.cloud">ScreenCloud</a> platform, providing ways for customers to get meaningful content on to their screens.`
     },
     {
       id: 1,
-      icon: 'assets/images/graphic-design.svg',
-      date: 'Oct 2014 - Jun 2017',
-      title: 'Software Designer',
-      content: `<strong>Philips Connected Digital Propositions and Platforms\n<p class='place'>Eindhoven, The Netherlands</p></strong>\nWorked on a <a href="https://www.philips.co.uk/healthcare/product/HCNOCTN482/ecarecoordinator-clinical-dashboard-for-ambulatory-health">cloud-based remote monitoring system for recovering patients</a>, an interface for programming <a href="https://www.lighting.philips.co.uk/systems/lighting-systems/luminous-flooring">luminous carpets</a>, and several internal tools.`
+      icon: 'assets/images/programming.svg',
+      date: 'Jun 2017 - Nov 2019',
+      title: 'Senior Software Developer / UI Designer',
+      content: `<strong>Philips Digital and Computational Pathology\n<p class='place'>Belfast, Northern Ireland</p></strong>\nLed a team building a suite of applications for <a target="_blank" href="http://www.pathxl.com/computational-pathology-tissuemark">computer-aided cancer diagnosis</a>.\nDesigned and implemented a common UI component library, and an automated testing framework.`
     },
     {
       id: 2,
+      icon: 'assets/images/graphic-design.svg',
+      date: 'Oct 2014 - Jun 2017',
+      title: 'Software Designer',
+      content: `<strong>Philips Connected Digital Propositions and Platforms\n<p class='place'>Eindhoven, The Netherlands</p></strong>\nWorked on a <a target="_blank" href="https://www.philips.co.uk/healthcare/product/HCNOCTN482/ecarecoordinator-clinical-dashboard-for-ambulatory-health">cloud-based remote monitoring system for recovering patients</a>, an interface for programming <a target="_blank" href="https://www.lighting.philips.co.uk/systems/lighting-systems/luminous-flooring">luminous carpets</a>, and several internal tools.`
+    },
+    {
+      id: 3,
       icon: 'assets/images/internship.svg',
       date: 'Jan 2014 - Oct 2014',
       title: 'Master Thesis Intern',
       content: `<strong>HintTech B.V.\n<p class='place'>Delft, The Netherlands</p></strong>\nImplemented and evaluated an interface for temporally navigating and discovering news items from a database of billions of articles.`
     },
     {
-      id: 3,
+      id: 4,
       icon: 'assets/images/internship.svg',
       date: 'Jul 2013 - Sep 2013',
       title: 'Summer Intern',
       content: `<strong>Philips Research\n<p class='place'>Eindhoven, The Netherlands</p></strong>\nPrototyped a cyber-physical system for adjusting environmental parameters in the operating room.`
     },
     {
-      id: 4,
+      id: 5,
       icon: 'assets/images/programming.svg',
       date: 'Jun 2009 - May 2012',
       title: 'Systems Engineer, Systems Integration',
