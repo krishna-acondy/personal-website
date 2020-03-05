@@ -27,13 +27,10 @@ export class ThemeService {
     const bodyClassList = document.querySelector('body').classList;
     if (bodyClassList.contains('white')) {
       bodyClassList.remove('white');
-    };
+    }
   }
 
   get darkMode() {
-    return this.darkModeSubject
-      .asObservable()
-      .pipe(shareReplay());
+    return this.darkModeSubject.asObservable().pipe(shareReplay());
   }
-
 }

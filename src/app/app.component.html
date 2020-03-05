@@ -1,48 +1,83 @@
-<button class='menu-toggle' (click)='onClick()' *ngIf='!(scrollPosition$ | async)'>
+<button
+  class="menu-toggle"
+  (click)="onClick()"
+  *ngIf="!(scrollPosition$ | async)"
+></button>
+<button
+  class="dark-mode-button"
+  (click)="toggleDarkMode()"
+  [title]="(isDarkMode$ | async) ? 'Light mode' : 'Dark mode'"
+>
+  {{ (isDarkMode$ | async) ? '☀️' : '🔦' }}
 </button>
-<button class='dark-mode-button' (click)='toggleDarkMode()' [title]='(isDarkMode$ | async) ? "Light mode" : "Dark mode"'>{{(isDarkMode$ | async) ? '☀️' : '🔦'}}
-</button>
-<nav [ngClass]='(isDarkMode$ | async) ? "dark" : ""'>
-  <button class='menu-toggle' (click)='onClick()'>
-  </button>
-  <ul class='menu' [ngClass]='(isDarkMode$ | async) ? "dark" : ""'>
-      <li *ngFor='let menuItem of menuItems'
-        class='subtitle'
-        [attr.data-text]='menuItem.name'
-        (click)='navigateTo(menuItem)'>
-          {{ menuItem.name }}
-      </li>
-      <div class='contact' [ngClass]="{'appear': isMenuOpen}">
-        <a href='https://github.com/krishna-acondy' target='_blank' title='Github'>
-          <div class='github-logo'></div>
-        </a>
-        <a href='mailto:kc.acondy@outlook.com' target='_blank' title='Email'>
-          <div class='email-icon'></div>
-        </a>
-        <a href='https://www.linkedin.com/in/krishnachaitanyaa/' target='_blank' title='LinkedIn'>
-          <div class='linkedin-logo'></div>
-        </a>
-        <a href='https://www.instagram.com/lighttr1ck/' target='_blank' title='Instagram'>
-          <div class='instagram-logo'></div>
-        </a>
-      </div>
+<nav [ngClass]="(isDarkMode$ | async) ? 'dark' : ''">
+  <button class="menu-toggle" (click)="onClick()"></button>
+  <ul class="menu" [ngClass]="(isDarkMode$ | async) ? 'dark' : ''">
+    <li
+      *ngFor="let menuItem of menuItems"
+      class="subtitle"
+      [attr.data-text]="menuItem.name"
+      (click)="navigateTo(menuItem)"
+    >
+      {{ menuItem.name }}
+    </li>
+    <div class="contact" [ngClass]="{ appear: isMenuOpen }">
+      <a
+        href="https://github.com/krishna-acondy"
+        target="_blank"
+        title="Github"
+      >
+        <div class="github-logo"></div>
+      </a>
+      <a href="mailto:kc.acondy@outlook.com" target="_blank" title="Email">
+        <div class="email-icon"></div>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/krishnachaitanyaa/"
+        target="_blank"
+        title="LinkedIn"
+      >
+        <div class="linkedin-logo"></div>
+      </a>
+      <a
+        href="https://www.instagram.com/lighttr1ck/"
+        target="_blank"
+        title="Instagram"
+      >
+        <div class="instagram-logo"></div>
+      </a>
+    </div>
   </ul>
 </nav>
-<div class='body' #body [ngClass]='(isDarkMode$ | async) ? "dark" : ""'>
+<div class="body" #body [ngClass]="(isDarkMode$ | async) ? 'dark' : ''">
   <router-outlet></router-outlet>
-    <div class='hero' *ngIf='isHome' ngClass.gt-sm='padded-gt-sm' ngClass.sm='padded-sm' ngClass.xs='padded' ngClass.lt-sm='padded'>
-      <div class='intro large'>
-        <div class='wrapper'>
-          <div class='left' [@appear]>
-              <div class='title'>Hi, I'm Krishna Acondy.</div>
-              <a (click)='goToLink("web-development")' class='subtitle'>I'm a web developer.</a>
-              <a (click)='goToLink("design")' class='subtitle'>I design.</a>
-              <a (click)='goToLink("photography")' class='subtitle'>I take pictures.</a>
-          </div>
-          <div class='right' [@appear] fxHide fxShow.gt-xs>
-            <div class='memoji'></div>
-          </div>
+  <div
+    class="hero"
+    *ngIf="isHome"
+    ngClass.gt-sm="padded-gt-sm"
+    ngClass.sm="padded-sm"
+    ngClass.xs="padded"
+    ngClass.lt-sm="padded"
+  >
+    <div class="intro large">
+      <div
+        class="wrapper"
+        [ngClass]="{ light: (isDarkMode$ | async) === false }"
+      >
+        <div class="left" [@appear]>
+          <div class="title">Hi, I'm Krishna Acondy.</div>
+          <a (click)="goToLink('web-development')" class="subtitle"
+            >I'm a web developer.</a
+          >
+          <a (click)="goToLink('design')" class="subtitle">I design.</a>
+          <a (click)="goToLink('photography')" class="subtitle"
+            >I take pictures.</a
+          >
+        </div>
+        <div class="right" [@appear] fxHide fxShow.gt-xs>
+          <div class="memoji"></div>
         </div>
       </div>
     </div>
+  </div>
 </div>

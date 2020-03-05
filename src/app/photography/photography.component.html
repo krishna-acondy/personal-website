@@ -1,11 +1,16 @@
-<div class='section-header' [ngClass]="{'dark': (isDarkMode$ | async)}">
-  <span class='text'>
+<div class="section-header" [ngClass]="{ dark: isDarkMode$ | async }">
+  <span class="text">
     Photography
   </span>
 </div>
-<div class='albums' [ngClass]="{'dark': (isDarkMode$ | async)}">
-  <a *ngFor='let album of albums' (click)='currentAlbum = album' [ngClass]="{'active': currentAlbum === album}">{{album | titlecase}}</a>
+<div class="albums" [ngClass]="{ dark: isDarkMode$ | async }">
+  <a
+    *ngFor="let album of albums"
+    (click)="currentAlbum = album"
+    [ngClass]="{ active: currentAlbum === album }"
+    >{{ album | titlecase }}</a
+  >
 </div>
-<div class='gallery-container' [ngClass]="{'dark': (isDarkMode$ | async)}">
-  <app-gallery [images]='this[currentAlbum]'></app-gallery>
+<div class="gallery-container" [ngClass]="{ dark: isDarkMode$ | async }">
+  <app-gallery [images]="this[currentAlbum]"></app-gallery>
 </div>

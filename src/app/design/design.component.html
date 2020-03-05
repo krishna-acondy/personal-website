@@ -1,9 +1,12 @@
-<div class='section-header white'>
-    <span class='text'>
-        Design
-    </span>
+<div class="section-header white">
+  <span class="text">
+    Design
+  </span>
 </div>
-<div class='under-construction'></div>
-<div class='message'>
-    This page is still under construction. Please check back later.
+<div
+  class="under-construction"
+  [ngClass]="{ light: (isDarkMode$ | async) === false }"
+></div>
+<div class="message" [ngClass]="{ light: (isDarkMode$ | async) === false }">
+  This page is still under construction. Please check back later.
 </div>

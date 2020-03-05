@@ -1,9 +1,13 @@
-<div class='section-header white'>
-  <span class='text'>
+<div class="section-header white">
+  <span class="text">
     Web Development
   </span>
 </div>
-<div class='paragraph'>
-  <br/>
-  <app-timeline [data]='timelineItems' primaryColor='rgba(0, 0, 0, 0.8)' [isDarkMode]='isDarkMode$ | async'></app-timeline>
+<div class="paragraph">
+  <br />
+  <app-timeline
+    [data]="timelineItems"
+    primaryColor="rgba(0, 0, 0, 0.8)"
+    [isDarkMode]="isDarkMode$ | async"
+  ></app-timeline>
 </div>

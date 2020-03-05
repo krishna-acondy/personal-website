@@ -1,41 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'animations';
+@import "animations";
 
 @font-face {
-  font-family: 'Google Sans Regular';
-  src: url('assets/fonts/GoogleSans-Regular.ttf')  format('truetype');
+  font-family: "Google Sans Regular";
+  src: url("assets/fonts/GoogleSans-Regular.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Google Sans Medium';
-  src: url('assets/fonts/GoogleSans-Medium.ttf')  format('truetype');
+  font-family: "Google Sans Medium";
+  src: url("assets/fonts/GoogleSans-Medium.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Google Sans Bold';
-  src: url('assets/fonts/GoogleSans-Bold.ttf')  format('truetype');
+  font-family: "Google Sans Bold";
+  src: url("assets/fonts/GoogleSans-Bold.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 
 * {
-  font-family: 'Google Sans Regular';
+  font-family: "Google Sans Regular";
 }
 
-html, body {
+html,
+body {
   width: 100vw;
   height: 100vh;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-}
-
-a {
-  color: #1974da;
 }
 
 div.web-development {
@@ -84,13 +81,13 @@ li.photography {
   font-size: 2rem;
   position: relative;
   display: inline-block;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #2e2e2e;
+  color: #f0f0f0;
   z-index: 1;
   padding: 0.25%;
 
   &.dark {
-    color: #ffffff;
+    color: #f0f0f0;
     background-color: transparent;
 
     &::after {
@@ -105,12 +102,12 @@ li.photography {
 
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #000000;
+    background-color: #2e2e2e;
     transform-origin: bottom left;
     transform: skewX(-30deg);
     z-index: 2;

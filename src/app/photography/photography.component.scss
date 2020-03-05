@@ -2,10 +2,10 @@
   padding: 10vh 0 0 3vw;
   min-height: 100vh;
   display: block;
-  background-color: #ffffff;
+  background-color: #f0f0f0;
 
   &.dark {
-    background-color: #000000;
+    background-color: #1f1f1f;
   }
 
   .albums {
@@ -17,14 +17,20 @@
         padding: 10px;
       }
 
-      &:hover, &.active {
-        color: #0dce7e;
+      &:hover,
+      &.active {
+        color: #93a09b;
       }
     }
   }
 
   .dark {
-    color: #ffffff;
-    background-color: #000000;
+    color: #f0f0f0;
+    background-color: #1f1f1f;
+
+    a:hover,
+    a:active {
+      color: #b5c4be;
+    }
   }
 }

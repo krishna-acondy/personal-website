@@ -17,7 +17,10 @@ export class PhotographyComponent implements OnInit, OnDestroy {
     { url: 'assets/images/japan/2.jpeg', caption: 'Tokyo, Japan' },
     { url: 'assets/images/japan/3.jpeg', caption: 'Daizafu, Fukuoka, Japan' },
     { url: 'assets/images/japan/4.jpeg', caption: 'Tokyo, Japan' },
-    { url: 'assets/images/japan/5.jpeg', caption: 'Yasaka-jinja Shrine⁩, ⁨Kyoto⁩, ⁨Japan⁩' },
+    {
+      url: 'assets/images/japan/5.jpeg',
+      caption: 'Yasaka-jinja Shrine⁩, ⁨Kyoto⁩, ⁨Japan⁩'
+    },
     { url: 'assets/images/japan/6.jpeg', caption: 'Kyoto, Japan' },
     { url: 'assets/images/japan/7.jpeg', caption: 'Hiroshima, Japan' },
     { url: 'assets/images/japan/8.jpeg', caption: 'Fukuoka, Japan' },
@@ -25,21 +28,57 @@ export class PhotographyComponent implements OnInit, OnDestroy {
     { url: 'assets/images/japan/10.jpeg', caption: 'Nara, Japan' },
     { url: 'assets/images/japan/11.jpeg', caption: 'Hiroshima, Japan' },
     { url: 'assets/images/japan/12.jpeg', caption: 'Nara, Japan' },
-    { url: 'assets/images/japan/13.jpeg', caption: 'Fushimi Shrine, Kyoto, Japan' }
+    {
+      url: 'assets/images/japan/13.jpeg',
+      caption: 'Fushimi Shrine, Kyoto, Japan'
+    }
   ];
 
   netherlands = [
-    { url: 'assets/images/netherlands/1.jpg', caption: 'Delft, The Netherlands' },
-    { url: 'assets/images/netherlands/2.jpg', caption: 'Schipluiden, The Netherlands' },
-    { url: 'assets/images/netherlands/3.jpg', caption: 'Delft, The Netherlands' },
-    { url: 'assets/images/netherlands/4.jpg', caption: 'Nuenen, The Netherlands' },
-    { url: 'assets/images/netherlands/5.jpg', caption: 'Lisse, The Netherlands' },
-    { url: 'assets/images/netherlands/6.jpg', caption: 'Utrecht, The Netherlands' },
-    { url: 'assets/images/netherlands/7.jpg', caption: 'Den Haag, The Netherlands' },
-    { url: 'assets/images/netherlands/8.jpg', caption: 'Ameland, The Netherlands' },
-    { url: 'assets/images/netherlands/9.jpg', caption: 'Utrecht, The Netherlands' },
-    { url: 'assets/images/netherlands/10.jpg', caption: 'Eindhoven, The Netherlands' },
-    { url: 'assets/images/netherlands/11.jpg', caption: 'Amsterdam, The Netherlands' }
+    {
+      url: 'assets/images/netherlands/1.jpg',
+      caption: 'Delft, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/2.jpg',
+      caption: 'Schipluiden, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/3.jpg',
+      caption: 'Delft, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/4.jpg',
+      caption: 'Nuenen, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/5.jpg',
+      caption: 'Lisse, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/6.jpg',
+      caption: 'Utrecht, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/7.jpg',
+      caption: 'Den Haag, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/8.jpg',
+      caption: 'Ameland, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/9.jpg',
+      caption: 'Utrecht, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/10.jpg',
+      caption: 'Eindhoven, The Netherlands'
+    },
+    {
+      url: 'assets/images/netherlands/11.jpg',
+      caption: 'Amsterdam, The Netherlands'
+    }
   ];
 
   paris = [
@@ -63,7 +102,6 @@ export class PhotographyComponent implements OnInit, OnDestroy {
     { url: 'assets/images/coorg/4.jpg', caption: 'Coorg, Karnataka, India' }
   ];
 
-
   bylakuppe = [
     { url: 'assets/images/bylakuppe/1.jpg', caption: 'Bylakuppe, India' },
     { url: 'assets/images/bylakuppe/2.png', caption: 'Bylakuppe, India' },
@@ -77,20 +115,24 @@ export class PhotographyComponent implements OnInit, OnDestroy {
 
   constructor(
     private themeService: ThemeService,
-    private elementRef: ElementRef) { }
+    private elementRef: ElementRef
+  ) {}
 
   ngOnInit() {
-    this.isDarkMode$ = this.themeService.darkMode
-    .pipe(
-      tap((isDarkMode) => {
+    this.isDarkMode$ = this.themeService.darkMode.pipe(
+      tap(isDarkMode => {
         if (isDarkMode) {
           this.elementRef.nativeElement.className += ' dark';
           this.themeService.unlightenBody();
         } else {
-          this.elementRef.nativeElement.className = this.elementRef.nativeElement.className.replace(/dark/g, '');
+          this.elementRef.nativeElement.className = this.elementRef.nativeElement.className.replace(
+            /dark/g,
+            ''
+          );
           this.themeService.lightenBody();
         }
-      }));
+      })
+    );
   }
 
   ngOnDestroy() {

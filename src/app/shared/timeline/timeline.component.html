@@ -1,20 +1,37 @@
-<div class='timeline'>
-    <div *ngFor='let item of data'>
-      <div class='container left' [ngClass]="{'left': isPair(item.id), 'right': !isPair(item.id), 'active': item.show, 'dark': isDarkMode}">
-        <div class='inner'>
-          <div class='head' [style.backgroundColor]='primaryColor' (click)='toggle(item)'>
-            <div class='icon'>
-              <img class='ui tiny image' [src]='item.icon'>
-            </div>
-            <div class='title'>
-              <span>{{item.date}}</span>
-              <span class='title-text'>{{item.title}}</span>
-            </div>
+<div class="timeline">
+  <div *ngFor="let item of data">
+    <div
+      class="container left"
+      [ngClass]="{
+        left: isPair(item.id),
+        right: !isPair(item.id),
+        active: item.show,
+        dark: isDarkMode
+      }"
+    >
+      <div class="inner">
+        <div
+          class="head"
+          [style.backgroundColor]="primaryColor"
+          (click)="toggle(item)"
+        >
+          <div class="icon">
+            <img class="ui tiny image" [src]="item.icon" />
           </div>
-          <div class='body' [hidden]='!item.show' [@slide]='item.show' [ngClass]='isDarkMode ? "dark" : ""'>
-            <p [innerHTML]='item.content'></p>
+          <div class="title">
+            <span>{{ item.date }}</span>
+            <span class="title-text">{{ item.title }}</span>
           </div>
+        </div>
+        <div
+          class="body"
+          [hidden]="!item.show"
+          [@slide]="item.show"
+          [ngClass]="isDarkMode ? 'dark' : ''"
+        >
+          <p [innerHTML]="item.content"></p>
         </div>
       </div>
     </div>
+  </div>
 </div>

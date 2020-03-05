@@ -16,22 +16,24 @@ export class TimelineEvent {
   styleUrls: ['./timeline.component.scss'],
   animations: [
     trigger('slide', [
-      transition('false => true' , [
+      transition('false => true', [
         style({ opacity: 0, height: 0 }),
-        animate('400ms ease-in-out', style({opacity: 1, height: '100%'}))
+        animate('400ms ease-in-out', style({ opacity: 1, height: '100%' }))
       ]),
-      transition('true => false' , [
+      transition('true => false', [
         style({ opacity: 1, height: '100%' }),
-        animate('400ms ease-in-out', style({opacity: 0, height: 0}))
+        animate('400ms ease-in-out', style({ opacity: 0, height: 0 }))
       ])
     ])
   ]
 })
-
 export class TimelineComponent {
   @Input()
   set data(events: TimelineEvent[]) {
-    this._data = events.map(e => { e.show = false; return e; });
+    this._data = events.map(e => {
+      e.show = false;
+      return e;
+    });
   }
 
   @Input()
@@ -59,5 +61,4 @@ export class TimelineComponent {
       }
     });
   }
-
 }

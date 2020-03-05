@@ -6,8 +6,7 @@ import { IImage } from './models/image.interface';
 import { DomSanitizer } from '@angular/platform-browser';
 
 export function shouldAnimate(previousValue, nextValue) {
-  return previousValue !== 'void'
-    && nextValue !== 'void';
+  return previousValue !== 'void' && nextValue !== 'void';
 }
 
 @Component({
@@ -16,24 +15,23 @@ export function shouldAnimate(previousValue, nextValue) {
   styleUrls: ['./gallery.component.scss'],
   animations: [
     trigger('appear', [
-      transition('void => *' , [
+      transition('void => *', [
         style({ opacity: 0 }),
-        animate('400ms ease-in-out', style({opacity: 1}))
+        animate('400ms ease-in-out', style({ opacity: 1 }))
       ]),
-      transition(shouldAnimate , [
+      transition(shouldAnimate, [
         style({ opacity: 0 }),
-        animate('400ms ease-in-out', style({opacity: 1}))
+        animate('400ms ease-in-out', style({ opacity: 1 }))
       ]),
-      transition('* => void' , [
+      transition('* => void', [
         style({ opacity: 1 }),
-        animate('400ms ease-in-out', style({opacity: 0}))
+        animate('400ms ease-in-out', style({ opacity: 0 }))
       ])
     ])
   ]
 })
 export class GalleryComponent {
-
-  constructor(private domSanitizer: DomSanitizer) { }
+  constructor(private domSanitizer: DomSanitizer) {}
 
   @Input()
   images: IImage[] = [];
@@ -54,9 +52,10 @@ export class GalleryComponent {
 
   get currentTransform() {
     return this.domSanitizer.bypassSecurityTrustStyle(
-      `translateX(${this.currentDeltaX}px) `
-      + `translateY(${this.currentDeltaY}px) `
-      + `scale(${this.currentScale})`);
+      `translateX(${this.currentDeltaX}px) ` +
+        `translateY(${this.currentDeltaY}px) ` +
+        `scale(${this.currentScale})`
+    );
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -65,14 +64,17 @@ export class GalleryComponent {
       if (event.key === 'Escape') {
         this.currentImage = null;
       } else if (event.key === 'ArrowLeft') {
-        this.currentImage = this.images[this.currentIndex - 1] || this.images[this.images.length - 1];
+        this.currentImage =
+          this.images[this.currentIndex - 1] ||
+          this.images[this.images.length - 1];
       } else if (event.key === 'ArrowRight') {
-        this.currentImage = this.images[this.currentIndex + 1] || this.images[0];
+        this.currentImage =
+          this.images[this.currentIndex + 1] || this.images[0];
       }
     }
   }
 
-  getUrl = (image: IImage) => image ? `url('${image.url}')` : '';
+  getUrl = (image: IImage) => (image ? `url('${image.url}')` : '');
 
   enlarge(image: IImage) {
     this.currentImage = image;
@@ -101,7 +103,8 @@ export class GalleryComponent {
   }
 
   onSwipeRight() {
-    this.currentImage = this.images[this.currentIndex - 1] || this.images[this.images.length - 1];
+    this.currentImage =
+      this.images[this.currentIndex - 1] || this.images[this.images.length - 1];
     this.reset();
   }
 

@@ -14,7 +14,7 @@ $active-gradient-to: #004e92;
 
   /* The actual timeline (the vertical ruler) */
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 6px;
     background-color: $primary-color;
@@ -35,10 +35,9 @@ $active-gradient-to: #004e92;
     background-color: initial;
     box-sizing: border-box;
 
-
     /* The circles on the timeline */
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       width: 25px;
       height: 25px;
@@ -51,10 +50,10 @@ $active-gradient-to: #004e92;
     }
 
     &.active {
-        &:after {
-            background-color: $active-gradient-from;
-            border: 4px solid $active-gradient-to;
-        }
+      &:after {
+        background-color: $active-gradient-from;
+        border: 4px solid $active-gradient-to;
+      }
     }
 
     &.dark {
@@ -95,7 +94,7 @@ $active-gradient-to: #004e92;
           }
 
           .title-text {
-              font-size: 1.3rem;
+            font-size: 1.3rem;
           }
         }
       }
@@ -110,12 +109,10 @@ $active-gradient-to: #004e92;
         }
 
         p {
-            margin: 0;
+          margin: 0;
         }
       }
     }
-
-
   }
 }
 
@@ -125,7 +122,7 @@ $active-gradient-to: #004e92;
 
   /* Add arrows to the left container (pointing right) */
   &:before {
-    content: " ";
+    content: ' ';
     height: 0;
     position: absolute;
     top: 22px;
@@ -144,7 +141,7 @@ $active-gradient-to: #004e92;
 
   /* Add arrows to the right container (pointing left) */
   &:before {
-    content: " ";
+    content: ' ';
     height: 0;
     position: absolute;
     top: 22px;
@@ -179,7 +176,6 @@ $active-gradient-to: #004e92;
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
   .timeline {
-
     /* Place the timelime to the left */
     &:after {
       left: 31px;

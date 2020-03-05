@@ -15,12 +15,10 @@ export interface MenuItem {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [
-    appear
-  ]
+  animations: [appear]
 })
 export class AppComponent implements OnInit {
-  @ViewChild('body', {static: true})
+  @ViewChild('body', { static: true })
   body: ElementRef;
 
   isMenuOpen = false;
@@ -56,8 +54,9 @@ export class AppComponent implements OnInit {
   scrollPosition$: Observable<number>;
 
   ngOnInit() {
-    this.scrollPosition$ = fromEvent(document.body, 'scroll')
-      .pipe(map((scrollEvent: any) => scrollEvent.target.scrollTop));
+    this.scrollPosition$ = fromEvent(document.body, 'scroll').pipe(
+      map((scrollEvent: any) => scrollEvent.target.scrollTop)
+    );
   }
 
   get isHome() {

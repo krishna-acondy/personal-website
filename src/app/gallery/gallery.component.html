@@ -1,16 +1,31 @@
-<ngx-masonry [options]='options' [useImagesLoaded]='true' class='thumbnails'>
-  <img ngxMasonryItem class='thumbnail' *ngFor='let image of images' [src]='image.url' (click)='enlarge(image)'/>
+<ngx-masonry [options]="options" [useImagesLoaded]="true" class="thumbnails">
+  <img
+    ngxMasonryItem
+    class="thumbnail"
+    *ngFor="let image of images"
+    [src]="image.url"
+    (click)="enlarge(image)"
+  />
 </ngx-masonry>
-<div class='page-mask' (click)='onClose()' *ngIf='currentImage' [@appear]='currentIndex'>
-  <div #image class='image'
-  (pan)='onPan($event)'
-  (pinch)='onPinch($event)'
-  (swipeleft)='onSwipeLeft()'
-  (swiperight)='onSwipeRight()'
-  (swipedown)='onClose()'
-  (swipeup)='onClose()'
-  [style.backgroundImage]='getUrl(currentImage)' [style.transform]='currentTransform'>
-    <div class='caption'>
+<div
+  class="page-mask"
+  (click)="onClose()"
+  *ngIf="currentImage"
+  [@appear]="currentIndex"
+>
+  <div
+    #image
+    class="image"
+    (pan)="onPan($event)"
+    (pinch)="onPinch($event)"
+    (swipeleft)="onSwipeLeft()"
+    (swiperight)="onSwipeRight()"
+    (swipedown)="onClose()"
+    (swipeup)="onClose()"
+    [style.backgroundImage]="getUrl(currentImage)"
+    [style.transform]="currentTransform"
+  >
+    <div class="caption">
       {{ currentImage.caption }}
     </div>
   </div>
