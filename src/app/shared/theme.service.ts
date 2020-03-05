@@ -6,7 +6,7 @@ import { shareReplay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ThemeService {
-  private _darkMode = false;
+  private _darkMode = true;
   private darkModeSubject = new BehaviorSubject(this._darkMode);
 
   toggleDarkMode() {
@@ -16,6 +16,20 @@ export class ThemeService {
       ? bodyClassList.remove('dark')
       : bodyClassList.add('dark');
     this.darkModeSubject.next(this._darkMode);
+  }
+
+  stopBackgroundAnimation() {
+    const bodyClassList = document.querySelector('body').classList;
+    if (!bodyClassList.contains('no-animation')) {
+      bodyClassList.add('no-animation');
+    }
+  }
+
+  startBackgroundAnimation() {
+    const bodyClassList = document.querySelector('body').classList;
+    if (bodyClassList.contains('no-animation')) {
+      bodyClassList.remove('no-animation');
+    }
   }
 
   lightenBody() {

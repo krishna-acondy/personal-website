@@ -1,5 +1,5 @@
-$button-color: #808080;
-$color: #a6b5ae;
+$button-color: #f0f0f0;
+$color: #1b84aa;
 $start-color: #fcfcf4;
 $color-bg: #fcfcf4;
 $color-dark: darken($color, 10%);
@@ -22,20 +22,43 @@ body {
   width: 100%;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 body {
-  a {
+  background: linear-gradient(45deg, #f0f0f0, #23a6d5, #f0f0f0);
+  background-size: 400% 400%;
+  animation: gradient 5s ease-in-out infinite;
+  a,
+  .hero-title {
     color: #2e2e2e;
   }
   &.dark {
-    background: #1f1f1f;
+    background: linear-gradient(-45deg, #0e0e0e, #383838, #4b4b4b, #0e0e0e);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
 
-    a {
+    a,
+    .hero-title {
       color: #f0f0f0;
     }
   }
 
   &.white {
     background: #f0f0f0;
+  }
+
+  &.no-animation {
+    animation: none;
   }
 }
 
@@ -51,7 +74,7 @@ ul {
 }
 
 .menu-toggle {
-  opacity: 0.45;
+  opacity: 0.75;
   background-color: transparent;
   position: fixed;
   z-index: 2;
@@ -218,7 +241,7 @@ ul.menu {
   transition: 0.2s ease-out;
   height: 100%;
   .open & {
-    transform: scale(0.92);
+    transform: scale(1);
     transition: transform 0.2s 0.41s ease-out;
   }
 }

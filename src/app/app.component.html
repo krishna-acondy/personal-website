@@ -21,7 +21,7 @@
     >
       {{ menuItem.name }}
     </li>
-    <div class="contact" [ngClass]="{ appear: isMenuOpen }">
+    <div class="contact dark" [ngClass]="{ appear: isMenuOpen }">
       <a
         href="https://github.com/krishna-acondy"
         target="_blank"
@@ -51,32 +51,45 @@
 </nav>
 <div class="body" #body [ngClass]="(isDarkMode$ | async) ? 'dark' : ''">
   <router-outlet></router-outlet>
-  <div
-    class="hero"
-    *ngIf="isHome"
-    ngClass.gt-sm="padded-gt-sm"
-    ngClass.sm="padded-sm"
-    ngClass.xs="padded"
-    ngClass.lt-sm="padded"
-  >
+  <div class="hero" *ngIf="isHome">
     <div class="intro large">
+      <div class="memoji-wrapper">
+        <div class="memoji"></div>
+      </div>
+      <span class="hero-title">Krishna Acondy</span>
+      <span class="links">
+        <a (click)="goToLink('web-development')">Web Developer. </a>
+        <a (click)="goToLink('photography')">Photographer. </a>
+        <a (click)="goToLink('design')">Designer.</a>
+      </span>
       <div
-        class="wrapper"
-        [ngClass]="{ light: (isDarkMode$ | async) === false }"
+        class="contact appear"
+        [ngClass]="(isDarkMode$ | async) ? 'dark' : ''"
       >
-        <div class="left" [@appear]>
-          <div class="title">Hi, I'm Krishna Acondy.</div>
-          <a (click)="goToLink('web-development')" class="subtitle"
-            >I'm a web developer.</a
-          >
-          <a (click)="goToLink('design')" class="subtitle">I design.</a>
-          <a (click)="goToLink('photography')" class="subtitle"
-            >I take pictures.</a
-          >
-        </div>
-        <div class="right" [@appear] fxHide fxShow.gt-xs>
-          <div class="memoji"></div>
-        </div>
+        <a
+          href="https://github.com/krishna-acondy"
+          target="_blank"
+          title="Github"
+        >
+          <div class="github-logo"></div>
+        </a>
+        <a href="mailto:kc.acondy@outlook.com" target="_blank" title="Email">
+          <div class="email-icon"></div>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/krishnachaitanyaa/"
+          target="_blank"
+          title="LinkedIn"
+        >
+          <div class="linkedin-logo"></div>
+        </a>
+        <a
+          href="https://www.instagram.com/lighttr1ck/"
+          target="_blank"
+          title="Instagram"
+        >
+          <div class="instagram-logo"></div>
+        </a>
       </div>
     </div>
   </div>

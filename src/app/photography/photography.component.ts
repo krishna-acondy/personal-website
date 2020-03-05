@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ThemeService } from '../shared/theme.service';
@@ -8,7 +8,7 @@ import { ThemeService } from '../shared/theme.service';
   templateUrl: './photography.component.html',
   styleUrls: ['./photography.component.scss']
 })
-export class PhotographyComponent implements OnInit, OnDestroy {
+export class PhotographyComponent implements OnInit {
   isDarkMode$: Observable<boolean>;
   albums = ['japan', 'netherlands', 'paris', 'coorg', 'bylakuppe'];
   currentAlbum = 'japan';
@@ -123,19 +123,13 @@ export class PhotographyComponent implements OnInit, OnDestroy {
       tap(isDarkMode => {
         if (isDarkMode) {
           this.elementRef.nativeElement.className += ' dark';
-          this.themeService.unlightenBody();
         } else {
           this.elementRef.nativeElement.className = this.elementRef.nativeElement.className.replace(
             /dark/g,
             ''
           );
-          this.themeService.lightenBody();
         }
       })
     );
-  }
-
-  ngOnDestroy() {
-    this.themeService.unlightenBody();
   }
 }

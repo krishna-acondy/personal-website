@@ -1,9 +1,20 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  OnDestroy
+} from '@angular/core';
 
-import { Router } from '@angular/router';
+import {
+  Router,
+  ActivatedRoute,
+  NavigationEnd,
+  RouterEvent
+} from '@angular/router';
 import { appear } from './shared/animations';
-import { Observable, fromEvent } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, fromEvent, Subscription } from 'rxjs';
+import { map, tap, filter } from 'rxjs/operators';
 import { ThemeService } from './shared/theme.service';
 
 export interface MenuItem {
@@ -17,10 +28,10 @@ export interface MenuItem {
   styleUrls: ['./app.component.scss'],
   animations: [appear]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('body', { static: true })
   body: ElementRef;
-
+  routerEventSubscription: Subscription;
   isMenuOpen = false;
 
   menuItems: MenuItem[] = [
@@ -57,6 +68,21 @@ export class AppComponent implements OnInit {
     this.scrollPosition$ = fromEvent(document.body, 'scroll').pipe(
       map((scrollEvent: any) => scrollEvent.target.scrollTop)
     );
+    this.routerEventSubscription = this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe((e: RouterEvent) => {
+        if (e.url === '/') {
+          this.themeService.startBackgroundAnimation();
+        } else {
+          this.themeService.stopBackgroundAnimation();
+        }
+      });
+  }
+
+  ngOnDestroy() {
+    if (this.routerEventSubscription) {
+      this.routerEventSubscription.unsubscribe();
+    }
   }
 
   get isHome() {

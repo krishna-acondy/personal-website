@@ -9,6 +9,7 @@ import { ThemeService } from '../shared/theme.service';
 })
 export class WebDevelopmentComponent {
   isDarkMode$: Observable<boolean>;
+
   constructor(themeService: ThemeService) {
     this.isDarkMode$ = themeService.darkMode;
   }
