@@ -110,7 +110,8 @@
     }
 
     .hero-title {
-      font-size: 8em;
+      font-size: 4rem;
+      font-family: 'Grouch';
     }
 
     @media screen and (max-width: 600px) {
@@ -183,7 +184,7 @@
   position: fixed;
   z-index: 5;
   top: 12px;
-  left: 85%;
+  right: 12px;
   font-size: 200%;
   border: 0px solid transparent;
   border-radius: 5px;
@@ -201,20 +202,12 @@
   }
 }
 
-.memoji-wrapper {
-  width: 12em;
-  height: 12em;
-  background: #f0f0f0;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .memoji {
-  background: url('../assets/images/memoji.png') no-repeat;
+  background: url('../assets/images/me.jpeg') no-repeat;
   width: 10em;
   height: 10em;
   background-size: cover;
   position: relative;
   bottom: 0.5em;
+  border-radius: 50%;
 }

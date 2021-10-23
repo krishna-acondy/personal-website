@@ -1,5 +1,5 @@
 $button-color: #f0f0f0;
-$color: #1b84aa;
+$color: #202020;
 $start-color: #fcfcf4;
 $color-bg: #fcfcf4;
 $color-dark: darken($color, 10%);
@@ -35,7 +35,7 @@ body {
 }
 
 body {
-  background: linear-gradient(45deg, #f0f0f0, #23a6d5, #f0f0f0);
+  background: #f8f8f8;
   background-size: 400% 400%;
   animation: gradient 5s ease-in-out infinite;
   a,
@@ -43,7 +43,7 @@ body {
     color: #2e2e2e;
   }
   &.dark {
-    background: linear-gradient(-45deg, #0e0e0e, #383838, #4b4b4b, #0e0e0e);
+    background: #202020;
     background-size: 400% 400%;
     animation: gradient 5s ease infinite;
 
@@ -74,7 +74,7 @@ ul {
 }
 
 .menu-toggle {
-  opacity: 0.75;
+  opacity: 1;
   background-color: transparent;
   position: fixed;
   z-index: 2;
@@ -84,19 +84,22 @@ ul {
   width: 24px;
   height: 24px;
   outline: none;
-  transition: opacity 0.2s ease-out;
   &:before {
     content: '☰';
     @include position-center;
     right: auto;
     width: 100%;
-    color: white;
+    color: #202020;
     top: 16px;
     left: -4px;
     font-family: Arial, sans-serif;
     font-size: 32px;
     line-height: 0;
-    transition: opacity 0.2s ease-out, width 0.2s 0.2s ease-out;
+  }
+  &.dark {
+    &:before {
+      color: white;
+    }
   }
   &:after {
     opacity: 0;

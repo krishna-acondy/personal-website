@@ -22,8 +22,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Grouch';
+  src: url('assets/fonts/grouch.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
 * {
-  font-family: 'Google Sans Regular';
+  font-family: 'Courier New', Courier, monospace;
 }
 
 html,

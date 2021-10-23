@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Work',
-      link: 'web-development',
+      link: 'work',
       color: '#129efc',
     },
     {

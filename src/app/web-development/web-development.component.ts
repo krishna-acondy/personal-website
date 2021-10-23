@@ -16,7 +16,7 @@ export class WebDevelopmentComponent {
 
   timelineItems = [
     {
-      id: 1,
+      id: 0,
       icon: 'assets/images/programming.svg',
       date: 'Apr 2021 - Present',
       title: 'Lead Developer, CattleEye Platform',
