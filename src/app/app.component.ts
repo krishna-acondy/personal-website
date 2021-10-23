@@ -3,14 +3,14 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  OnDestroy
+  OnDestroy,
 } from '@angular/core';
 
 import {
   Router,
   ActivatedRoute,
   NavigationEnd,
-  RouterEvent
+  RouterEvent,
 } from '@angular/router';
 import { appear } from './shared/animations';
 import { Observable, fromEvent, Subscription } from 'rxjs';
@@ -26,7 +26,7 @@ export interface MenuItem {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [appear]
+  animations: [appear],
 })
 export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('body', { static: true })
@@ -38,23 +38,23 @@ export class AppComponent implements OnInit, OnDestroy {
     {
       name: 'Home',
       link: '/',
-      color: '#ffffff'
+      color: '#ffffff',
     },
     {
-      name: 'Web Development',
+      name: 'Work',
       link: 'web-development',
-      color: '#129efc'
+      color: '#129efc',
     },
     {
       name: 'Design',
       link: 'design',
-      color: '#0699b3'
+      color: '#0699b3',
     },
     {
       name: 'Photography',
       link: 'photography',
-      color: '#ffffff'
-    }
+      color: '#ffffff',
+    },
   ];
   isDarkMode$: Observable<boolean>;
   currentUrl: string;
@@ -69,7 +69,7 @@ export class AppComponent implements OnInit, OnDestroy {
       map((scrollEvent: any) => scrollEvent.target.scrollTop)
     );
     this.routerEventSubscription = this.router.events
-      .pipe(filter(e => e instanceof NavigationEnd))
+      .pipe(filter((e) => e instanceof NavigationEnd))
       .subscribe((e: RouterEvent) => {
         if (e.url === '/') {
           this.themeService.startBackgroundAnimation();

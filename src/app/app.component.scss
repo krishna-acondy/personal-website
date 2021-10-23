@@ -115,13 +115,13 @@
 
     @media screen and (max-width: 600px) {
       .hero-title {
-        font-size: 5em;
+        font-size: 4rem;
       }
     }
 
     .links {
       a {
-        font-size: 3em;
+        font-size: 2em;
         cursor: pointer;
         &:hover {
           text-decoration: underline;
@@ -197,7 +197,7 @@
 
 @media only screen and (max-width: 600px) {
   .dark-mode-button {
-    left: 70%;
+    left: 85%;
   }
 }
 

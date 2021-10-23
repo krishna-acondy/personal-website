@@ -7,7 +7,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
 import * as Hammer from 'hammerjs';
 import {
   HammerGestureConfig,
-  HAMMER_GESTURE_CONFIG
+  HAMMER_GESTURE_CONFIG,
 } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -19,23 +19,23 @@ import { TimelineComponent } from './shared/timeline/timeline.component';
 
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
-    swipe: { direction: Hammer.DIRECTION_ALL }
+    swipe: { direction: Hammer.DIRECTION_ALL },
   };
 }
 
 export const routes: Route[] = [
   {
-    path: 'web-development',
-    component: WebDevelopmentComponent
+    path: 'work',
+    component: WebDevelopmentComponent,
   },
   {
     path: 'photography',
-    component: PhotographyComponent
+    component: PhotographyComponent,
   },
   {
     path: 'design',
-    component: DesignComponent
-  }
+    component: DesignComponent,
+  },
 ];
 
 @NgModule({
@@ -45,21 +45,21 @@ export const routes: Route[] = [
     WebDevelopmentComponent,
     PhotographyComponent,
     DesignComponent,
-    TimelineComponent
+    TimelineComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     NgxMasonryModule,
-    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
+    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' }),
   ],
   providers: [
     {
       provide: HAMMER_GESTURE_CONFIG,
-      useClass: HammerConfig
-    }
+      useClass: HammerConfig,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

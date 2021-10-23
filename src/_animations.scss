@@ -81,28 +81,21 @@ ul {
   top: 24px;
   left: 24px;
   border: none;
-  width: 36px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   outline: none;
   transition: opacity 0.2s ease-out;
   &:before {
-    content: '';
+    content: '☰';
     @include position-center;
     right: auto;
     width: 100%;
-    background: linear-gradient(
-      to bottom,
-      $button-color,
-      $button-color 20%,
-      transparent 20%,
-      transparent 40%,
-      $button-color 40%,
-      $button-color 60%,
-      transparent 60%,
-      transparent 80%,
-      $button-color 80%,
-      $button-color 100%
-    );
+    color: white;
+    top: 16px;
+    left: -4px;
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    line-height: 0;
     transition: opacity 0.2s ease-out, width 0.2s 0.2s ease-out;
   }
   &:after {
@@ -113,7 +106,7 @@ ul {
     top: 16px;
     left: -4px;
     font-family: Arial, sans-serif;
-    font-size: 76px;
+    font-size: 48px;
     line-height: 0;
     transition: opacity 0.4s ease-out;
   }
